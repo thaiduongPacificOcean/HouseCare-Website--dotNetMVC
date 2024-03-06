@@ -1,0 +1,57 @@
+﻿@model HouseCareWeb.Models.account
+
+@{
+    ViewBag.Title = "Đăng ký";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div id="wrapper">
+    <div class="container">
+        <div class="form-center">
+            <div class="login-form">
+                <div class="form-title">
+                    @if (Session["dangky"] != null)
+                    {
+                        <div class="alert alert-success">
+                            <h6>@Session["dangky"]</h6>
+                        </div>
+                    }
+                    <h2>Đăng ký tài khoản</h2>
+                </div>
+                <div class="form-content">
+                    @using (Html.BeginForm("Dangky", "Login", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+                        <form>
+                            <div class="form-login">
+                                @Html.ValidationSummary()
+
+                                <label><b>Tài Khoản</b></label>
+                                <input type="text" placeholder="Nhập tài khoản" name="Taikhoan" required>
+
+                                <label><b>Email</b></label>
+                                <input type="text" placeholder="Nhập Email" name="Email" required>
+
+                                <label><b>Mật khẩu</b></label>
+                                <input type="password" placeholder="Nhập mật khẩu" name="Matkhau" required>
+
+                                <label><b>Tên</b></label>
+                                <input type="text" placeholder="Nhập tên " name="Ten" required>
+
+                                <label><b>Số điện thoại</b></label>
+                                <input type="text" placeholder="Nhập số điện thoại" name="Sdt" required>
+
+                                <button type="submit" class="registerbtn">Đăng ký</button>
+
+                                <div class="signin">
+                                    <p>Đã có tài khoản ? @Html.ActionLink("Đăng nhập tại đây", "Index", "Login")</p>
+                                </div>
+                            </div>
+                        </form>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

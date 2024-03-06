@@ -1,0 +1,51 @@
+﻿@model HouseCareWeb.Models.dichvu
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+
+@using (Html.BeginForm("Create", "QuanLyDichVu", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="info-acc">
+        <h2>Thêm dịch vụ</h2>
+        
+
+        <hr />
+        <div class="card-info">
+            <form action="/" method="post">
+                <div class="info-row">
+                    <div class="info-col">
+                        <label>Mã dịch vụ</label>
+                        <input type="text" name="Madichvu" value=""  />
+                    </div>
+                    <div class="info-col">
+                        <label>Tên dịch vụ</label>
+                        <input type="text" name="Tendichvu" value="" />
+                    </div>
+                    <div class="info-col">
+                        <label>Mô tả</label>
+                        <input type="text" name="Mota" value="" />
+                    </div>
+                    <div class="info-col">
+                        <label>Hình ảnh</label>
+                        <input type="file" name="Img" value="" />
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="btn-savechange">
+            <button type="submit">Thêm</button>
+        </div>
+
+    </div>
+
+}
+
+<div class="btn-admin">
+    <a href="~/QuanLyDichVu/">
+        <button>Trờ về</button>
+    </a>
+</div>

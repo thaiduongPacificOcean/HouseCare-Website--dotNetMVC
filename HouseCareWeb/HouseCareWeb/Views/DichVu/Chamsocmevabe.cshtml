@@ -1,0 +1,145 @@
+﻿
+
+@{
+    ViewBag.Title = "Chăm sóc mẹ và bé";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@{
+    ViewBag.Title = "Chăm sóc mẹ và bé";
+}
+
+<!-- Dịch vụ Cham soc me va be -->
+<br />
+
+<div id="wrapper">
+    <div class="container">
+        @*<div class="item-title">
+                <h4>HouseCare</h4>
+                <h2>Giúp việc nhà theo giờ</h2>
+            </div>*@
+        <div class="page-title">
+            <div class="page-title--btn">
+                <a href="">Trang chủ</a>
+                <i class="fa-solid fa-angle-right"></i>
+                <span>Chăm sóc mẹ và bé</span>
+            </div>
+        </div>
+
+        <div class="service">
+            <div class="service-thumb-3">
+                <!-- Sidebar -->
+                <div class="sidebar">
+                    <ul>
+                        <li>
+                            @Html.ActionLink("Việc nhà theo giờ", "Viecnha", "DichVu")
+                        </li>
+                        <li>
+                            @Html.ActionLink("Vệ sinh công nghiệp", "Vesinhcongnghiep", "DichVu")
+                        </li>
+                        <li>
+                            @Html.ActionLink("Sửa chữa điện lạnh", "Suachuadienlanh", "DichVu")
+                        </li>
+                        <li>
+                            @Html.ActionLink("Chăm sóc mẹ và bé", "Chamsocmevabe", "DichVu")
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Bài báo -->
+
+                <div class="post">
+                    <div class="item-title">
+                        <h3>Recent Posts</h3>
+                    </div>
+                    <div class="post-thumb">
+                        <div class="post-item">
+                            <img src="~/img/notify-1.jpg" alt="Alternate Text" />
+                            <div class="post-text">
+                                <span>17 June, 2022</span>
+                                <a href="">Dịch vụ chăm sóc mẹ sau sinh uy tín chất lượng  - liên hệ ngay HouseCare</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="post-thumb">
+                        <div class="post-item">
+                            <img src="~/img/notify-2.jpg" alt="Alternate Text" />
+                            <div class="post-text">
+                                <span>17 June, 2022</span>
+                                <a href="">Khám phá dịch vụ sửa chữa tủ lạnh  - liên hệ ngay HouseCare</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="post-thumb">
+                        <div class="post-item">
+                            <img src="~/img/notify-3.jpg" alt="Alternate Text" />
+                            <div class="post-text">
+                                <span>17 June, 2022</span>
+                                <a href="">Cách thức mua bảo hiểm Housecare đơn giản ngay tại nhà</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="post-thumb">
+                        <div class="post-item">
+                            <img src="~/img/notify-4.png" alt="Alternate Text" />
+                            <div class="post-text">
+                                <span>17 June, 2022</span>
+                                <a href="">Credify hợp tác Bảo Hiểm HD triển khai bảo hiểm số trên nền tảng HouseCare</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Liên hệ -->
+                <img src="~/img/lienhe.jpg" alt="Alternate Text" />
+            </div>
+            <div class="service-thumb-7">
+                <div class="service-title">
+                    <h3>
+                        Bảng giá dịch vụ Chăm sóc Mẹ và Bé sau sinh
+                    </h3>
+                </div>
+
+                <div class="package">
+                    @foreach (var goi in ViewBag.goidichvu)
+                    {
+                        <div class="pk-thumb">
+                            <div class="pk-item">
+                                <h3>@goi.Tengoi</h3>
+                                <h2>@goi.Giatien</h2>
+                                <h4>VNĐ / Giờ</h4>
+                                <div class="detail">
+                                    <span class="span-detail">@goi.Detail</span>
+                                    <span>Công cụ làm sạch cơ bản : Không</span>
+                                    <span>Đảm bảo sự hài lòng</span>
+                                    <span>Hỗ trợ 24/7</span>
+                                    <span>Giờ phát sinh thêm: 75.000 VNĐ/giờ</span>
+                                </div>
+                                <div class="dangky-btn">
+
+                                    @{
+                                        var us = Session["Taikhoan"] as HouseCareWeb.Models.account;
+                                    }
+                                    @if (us != null)
+                                    {
+
+                                        <a href="~/Checkout/CheckoutLogin?id=@goi.Id">Đăng ký</a>
+
+                                    }
+                                    else
+                                    {
+
+                                        <a href="~/Checkout/CheckoutNoLogin?id=@goi.Id">Đăng ký</a>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

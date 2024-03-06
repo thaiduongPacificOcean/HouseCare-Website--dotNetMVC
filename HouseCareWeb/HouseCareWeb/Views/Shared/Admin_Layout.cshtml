@@ -1,0 +1,164 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/Content/main.css" rel="stylesheet" />
+    <link href="~/Content/responsive.css" rel="stylesheet" />
+    <link href="~/fonts/fontawesome-free-6.2.0-web/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,500,600,700&display=swap" rel="stylesheet">
+    <title>Admin page</title>
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    @{
+        var us = Session["Taikhoan"] as HouseCareWeb.Models.account;
+    }
+    <div class="sec">
+        <div class="top_nav">
+            <div class="hamburger">
+                <div class="toggle-div">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+            <div class="logout-btn">
+                <a href="~/Login/Logout/">Đăng xuất</a>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="Sidenav">
+        <div class="profile">
+            <img src="~/img/@us.Img" alt="profile_picture">
+            <h3>@us.Ten</h3>
+            @if (@us.Quyen == "NV")
+            {
+                <p>Quản lý</p>
+
+            }
+            else
+            {
+                <p>Admin</p>
+
+            }
+        </div>
+        <div class="Sidenav-item">
+            <ul>
+                <li>
+                    <a href="~/Admin/" class="active">
+                        <span class="icon"><i class="fas fa-home"></i></span>
+                        <span class="item">Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="~/QuanLyNhanVien/">
+                        <span class="item">Quản lý nhân viên</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="~/QuanLyGoiDichVu/">
+                        <span class="item">Quản lý gói dịch vụ</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="~/QuanLyDichVu/">
+                        <span class="item">Quản lý dịch vụ</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="~/QuanLyTaiKhoan/">
+                        <span class="item">Quản lý tài khoản</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="~/BaiViet/">
+                        <span class="item">Quản lý bài viết</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="~/QuanLyTuyenDung/">
+                        <span class="item">Quản lý danh sách tuyển dụng</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="~/QuanLyDangKyGoiDichVu/">
+                        <span class="item">Danh sách đăng ký</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="~/TaiKhoan/AdminAccount/">
+                        <span class="icon"><i class="fas fa-cog"></i></span>
+                        <span class="item">Settings</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="content" class="content">
+        <div class="info">
+            @RenderBody()
+
+        </div>
+    </div>
+
+
+
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+
+<!-- SCRIPT -->
+<script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+<Script>
+    $(document).ready(function () {
+        $(window).scroll(function () {
+            if ($(this).scrollTop()) {
+                $('.backtop').fadeIn();
+            }
+            else {
+                $('.backtop').fadeOut();
+            }
+        });
+        $('.backtop').click(function () {
+            $('html,body').animate({
+                scrollTop: 0
+            }, 500);
+
+        });
+    });
+</Script>
+<script>
+    let slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) { slideIndex = 1 }
+
+        slides[slideIndex - 1].style.display = "block";
+
+        setTimeout(showSlides, 5000);
+    }
+</script>
+<script>
+    var hamburger = document.querySelector(".hamburger");
+    hamburger.addEventListener("click", function () {
+        document.querySelector("body").classList.toggle("active");
+    })
+</script>
+
+</html>
+

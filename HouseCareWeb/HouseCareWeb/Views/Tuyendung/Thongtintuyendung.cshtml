@@ -1,0 +1,83 @@
+﻿@model HouseCareWeb.Models.Tuyendung
+
+@{
+    ViewBag.Title = "Thongtintuyendung";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br />
+<br />
+<div class="container">
+    @using (Html.BeginForm("Dangkytuyendung", "Tuyendung", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="info-acc">
+            <h2>Điền đầy đủ thông tin người tìm việc </h2>
+            <hr />
+            <div class="card-info">
+                <form action="/" method="post">
+                    <div class="info-row">
+                        <div class="info-col">
+                            <label>Họ và tên</label>
+                            <input type="text" name="Hoten" value="" required />
+                        </div>
+                        @*<div class="info-col">
+                            <label>Tuổi</label>
+                            <input type="text" name="Tuoi" value="" required />
+                        </div>*@
+                        <div class="info-col">
+                            <label>Ngày sinh</label>
+                            <input type="date" name="Ngaysinh" value="" required />
+                        </div>
+                        <div class="info-col">
+                            <label>Giới tính</label>
+                            <input type="text" name="Gioitinh" value="" required />
+                        </div>
+                        <div class="info-col">
+                            <label>Địa chỉ</label>
+                            <input type="text" name="Diachi" value="" required />
+                        </div>
+                        <div class="info-col">
+                            <label>Quê quán</label>
+                            <input type="text" name="Quequan" value="" required />
+                        </div>
+                        <div class="info-col">
+                            <label>Ngày đăng ký</label>
+                            <input type="date" name="Ngaydangky" value="" required />
+                        </div>
+                        <div class="info-col">
+                            <label>Vị trí ứng tuyền</label>
+                            <input type="text" name="Chucvu" value="" required />
+                        </div>
+                        <div class="info-col">
+                            <label>CCCD/CMND</label>
+                            <input type="text" name="CCCD" value="" required />
+                        </div>
+                        <div class="info-col">
+                            <label>Số điện thoại</label>
+                            <input type="text" name="Sdt" value="" required />
+                        </div>
+                        <div class="info-col">
+                            <label>Kinh nghiệm</label>
+                            <input type="text" name="Kinhnghiem" value="" required />
+                        </div>
+                        <div class="info-col">
+                            <label>Email</label>
+                            <input type="email" name="Email" value="" required />
+                        </div>
+                        <div class="info-col">
+                            <label>Thông tin thêm về bạn</label>
+                            <input type="text" name="Mota" value="" required />
+                        </div>
+                        <div class="info-col">
+                            <label>Gửi file hình ảnh CV tại đây :</label>
+                            <input type="file" name="Img" value="" required />
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="btn-savechange">
+                <button type="submit">Gửi</button>
+            </div>
+        </div>
+    }
+</div>

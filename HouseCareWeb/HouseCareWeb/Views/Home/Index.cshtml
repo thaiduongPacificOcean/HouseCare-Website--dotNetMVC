@@ -1,0 +1,294 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="banner">
+    <img src="~/img/banner.jpg" alt="Alternate Text" />
+</div>
+
+<!-- GIỚI THIỆU VỀ CHÚNG TÔI -->
+
+<div class="container">
+
+    <div class="intro">
+        <div class="intro-thumb-4">
+            <div class="slideshow-container">
+                @*<div class="mySlides fade">
+                    <img src="~/img/giupviecnhatheogio.jpg" style="width:100% ; height:500px">
+                </div>*@
+
+                <div class="mySlides fade">
+                    <img src="~/img/chamsocmevabe.jpg" style="width: 100%; height: 500px">
+
+                </div>
+
+                <div class="mySlides fade">
+                    <img src="~/img/suachuadienlanh.jpg" style="width: 100%; height: 500px">
+                </div>
+
+                <div class="prev" onclick="plusSlides(-1)">❮</div>
+
+                <div class="next" onclick="plusSlides(1)">❯</div>
+            </div>
+        </div>
+
+        <div class="intro-thumb-6">
+            <div class="intro-item">
+                <div class="item-title">
+                    <h4>LETMECARE</h4>
+                    <h2>GIỚI THIỆU VỀ CHÚNG TÔI</h2>
+                </div>
+                <div class="item-text">
+                    <h2>
+                        Đội ngũ nhân viên chuyên nghiệp của HOUSECARE đều được tuyển chọn kỹ lưỡng và đào tạo bài bản,
+                        lý lịch rõ ràng, tận tâm với công việc để đảm bảo không gian sống của gia đình bạn luôn được chăm chút cẩn thận và gọn gàng,
+                        khiến bạn luôn cảm thấy hài lòng và yên tâm nhất.
+                    </h2>
+                    <p>
+                        Với phương châm <strong>“Việc Nhà Cứ Để Tôi”</strong> và không ngừng nâng cao chất lượng, Housecare liên tục mở rộng và đào tạo năng lực của đội ngũ nhân viên,
+                        hoàn thiện hệ thống ứng dụng, nâng cao dịch vụ chăm sóc khách hàng, đẩy mạnh tính năng hỗ trợ trực tuyến.
+                    </p>
+                    <p>
+                        Mỗi khách hàng được xem như là một viên gạch xây lên giá trị của công ty,
+                        vì vậy <strong>HOUSECARE</strong> luôn lắng nghe và thấu hiểu nhu cầu của từng khách hàng để giải quyết tối ưu những nhu cầu đó.
+                    </p>
+                </div>
+            </div>
+            <hr />
+            <div class="item-mota">
+                <div class="mota-thumb">
+                    <div class="icon-title">
+                        <i class="fa-solid fa-dollar-sign"></i>
+                        <h2>GIÁ CẢ</h2>
+                    </div>
+                    <div class="icon-text">
+                        <p>Giá cả hợp lý, phù hợp với từng cá nhân, gia đình, doanh nghiệp</p>
+                    </div>
+                </div>
+                <div class="mota-thumb">
+                    <div class="icon-title">
+                        <i class="fa-solid fa-user"></i>
+                        <h2>NHÂN VIÊN</h2>
+                    </div>
+                    <div class="icon-text">
+                        <p>Nhân viên được đào tạo bài bản, chuyên nghiệp và có lý lịch rõ ràng.</p>
+                    </div>
+                </div>
+                <div class="mota-thumb">
+                    <div class="icon-title">
+                        <i class="fa-solid fa-gear"></i>
+                        <h2>CHĂM SÓC</h2>
+                    </div>
+                    <div class="icon-text">
+                        <p>Chăm sóc khách hàng, hậu mãi chu đáo, khách hàng là trên hết</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<br />
+
+<!-- Giới thiệu gói dịch vụ -->
+
+<div id="wrapper">
+    <div class="container">
+        <!-- Tiêu đề trung tâm -->
+        <div class="title-center">
+            <header class="title-header">
+                <div class="title-item">
+                    <h4>HouseCare</h4>
+                    <h2>DỊCH VỤ</h2>
+                </div>
+            </header>
+            <div class="title-item--name">
+                <p>Các dịch vụ của chúng tôi</p>
+            </div>
+        </div>
+
+        <div class="row">
+            @foreach (var dichvu in ViewBag.dichvu)
+            {
+                <div class="row-thumb">
+                    <div class="row-item">
+                        <div class="row-img">
+                            <img src="~/img/@dichvu.Img" alt="">
+                        </div>
+
+                        <div class="row-text">
+                            <h5>@dichvu.Tendichvu</h5>
+                            <p>@dichvu.Mota</p>
+                        </div>
+                        <div class="chitiet-dichvu">
+                            <a href="~/DichVu/ViecNha/">Đặt lịch hẹn tại đây</a>
+                            <i class="fa-solid fa-angles-right"></i>
+                        </div>
+                    </div>
+
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<!-- TIÊU CHUẨN + LIÊN HỆ -->
+
+<div class="container">
+
+    <div class="intro">
+        <div class="intro-thumb-6">
+            <div class="intro-item">
+                <div class="item-title">
+                    <h4>TOP 5 LÍ DO</h4>
+                    <h2>TẠI SAO LỰA CHỌN HOUSECARE</h2>
+                </div>
+                <div class="item-text">
+                    <p class="p-lido">
+                        Tất cả Cộng tác viên của HouseCare đều có lý lịch rõ ràng, được đào tạo quy trình phục vụ và đảm bảo chất lượng nhằm đem lại sự hài lòng tối đa cho Khách hàng
+                    </p>
+                </div>
+            </div>
+            <hr />
+            <div class="item-lido">
+                <div class="lido-thumb">
+                    <div class="lido-title">
+                        <i class="fa-solid fa-money-bill-1-wave"></i>
+                        <h2>Chi phí hợp lý</h2>
+                    </div>
+                    <div class="lido-title">
+                        <i class="fa-sharp fa-solid fa-scale-balanced"></i>
+                        <h2>An toàn, pháp lý đầy đủ</h2>
+                    </div>
+                    <div class="lido-title">
+                        <i class="fa-solid fa-thumbs-up"></i>
+                        <h2>Chăm sóc Khách hàng tận tâm</h2>
+                    </div>
+                </div>
+                <div class="lido-thumb">
+                    <div class="lido-title">
+                        <i class="fa-solid fa-star"></i>
+                        <h2>Đảm bảo 100% chất lượng</h2>
+                    </div>
+                    <div class="lido-title">
+                        <i class="fa-solid fa-users"></i>
+                        <h2>Chọn lại nhân viên yêu thích</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="link-lienhe">
+                <a href="">Liên hệ với chúng tôi</a>
+            </div>
+
+        </div>
+        <div class="intro-thumb-4">
+            <img src="~/img/lienhe.jpg" alt="Alternate Text" />
+        </div>
+    </div>
+</div>
+
+<!-- Thống kê -->
+
+<div class="thongke-div">
+    <div class="container">
+        <div class="thongke">
+            <div class="thongke-thumb">
+                <div class="thongke-item">
+                    <i class="fa-solid fa-users"></i>
+                    <h2>22.000</h2>
+                    <span>Khách hàng</span>
+                </div>
+            </div>
+            <div class="thongke-thumb">
+                <div class="thongke-item">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    <h2>150.000</h2>
+                    <span>Dịch vụ</span>
+                </div>
+            </div>
+            <div class="thongke-thumb">
+                <div class="thongke-item">
+                    <i class="fa-solid fa-user"></i>
+                    <h2>1200</h2>
+                    <span>Nhân viên</span>
+                </div>
+            </div>
+            <div class="thongke-thumb">
+                <div class="thongke-item">
+                    <i class="fa-solid fa-building"></i>
+                    <h2>2</h2>
+                    <span>Chi nhánh văn phòng</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<br />
+
+<!-- Tin tức -->
+
+<div class="container">
+    <div class="item-title">
+        <h2>TIN TỨC MỚI</h2>
+    </div>
+    <br />
+    <div class="slider owl-carousel">
+        @foreach (var post in ViewBag.baiviet)
+        {
+            <div class="card">
+                <div class="card-img">
+                    <img src="~/img/@post.Img" alt="Alternate Text" />
+                </div>
+
+                <div class="card-content">
+                    <div class="date">
+                        <i class="fa-solid fa-calendar-days"></i>
+                        <span> @post.Ngaydang </span>
+                    </div>
+                    <div class="card-title">
+                        @post.Ten
+                    </div>
+                    <div class="card-detail">
+                        <p>
+                            @post.Mota
+                        </p>
+                    </div>
+                    <div class="chitiet-btn">
+                        <a href="#">Xem thêm</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    
+</div>
+@*</div>*@
+
+
+<!-- Slider -->
+<script>
+    $(".slider").owlCarousel({
+        loop: true,
+        autoplay: true,
+        magin: 10,
+        autoplayTimeout: 2000,
+        autoplayHoverPause: true,
+        responsive: {
+            0: {
+                items: 1,
+                nav: false
+            },
+            600: {
+
+                items: 2,
+                nav: false
+            },
+            1000: {
+                items: 3,
+                nav: false
+            }
+        }
+    });
+</script>

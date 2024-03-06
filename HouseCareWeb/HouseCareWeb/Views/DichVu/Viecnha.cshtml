@@ -1,0 +1,91 @@
+﻿
+@{
+    ViewBag.Title = "Việc nhà theo giờ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Dịch vụ giúp việc tại nhà -->
+<br />
+
+<div id="wrapper">
+    <div class="container">
+        @*<div class="item-title">
+                <h4>HouseCare</h4>
+                <h2>Giúp việc nhà theo giờ</h2>
+            </div>*@
+        <div class="page-title">
+            <div class="page-title--btn">
+                <a href="">Trang chủ</a>
+                <i class="fa-solid fa-angle-right"></i>
+                <span>Giúp việc nhà theo giờ</span>
+            </div>
+        </div>
+
+        <div class="service">
+            <div class="service-thumb-3">
+                <!-- Sidebar -->
+                <div class="sidebar">
+                    <ul>
+                        <li>
+                            @Html.ActionLink("Việc nhà theo giờ", "Viecnha", "DichVu")
+                        </li>
+                        <li>
+                            @Html.ActionLink("Vệ sinh công nghiệp", "Vesinhcongnghiep", "DichVu")
+                        </li>
+                        <li>
+                            @Html.ActionLink("Sửa chữa điện lạnh", "Suachuadienlanh", "DichVu")
+                        </li>
+                        <li>
+                            @Html.ActionLink("Chăm sóc mẹ và bé", "Chamsocmevabe", "DichVu")
+                        </li>
+                    </ul>
+                </div>
+                <img src="~/img/lienhe.jpg" alt="Alternate Text" />
+            </div>
+            <div class="service-thumb-7">
+                <div class="service-title">
+                    <h3>
+                        Bảng Giá Dịch vụ giúp việc nhà theo giờ
+                    </h3>
+                </div>
+                <div class="package">
+                    @foreach (var goi in ViewBag.goidichvu)
+                    {
+                        <div class="pk-thumb">
+                            <div class="pk-item">
+                                <h3>@goi.Tengoi</h3>
+                                <h2>@goi.Giatien</h2>
+                                <h4>VNĐ / Giờ</h4>
+                                <div class="detail">
+                                    <span>@goi.Detail</span>
+                                    <span>Công cụ làm sạch cơ bản : Không</span>
+                                    <span>Đảm bảo sự hài lòng</span>
+                                    <span>Hỗ trợ 24/7</span>
+                                    <span>Giờ phát sinh thêm: 75.000 VNĐ/giờ</span>
+                                </div>  
+                                <div class="dangky-btn">
+                                    
+                                    @{
+                                        var us = Session["Taikhoan"] as HouseCareWeb.Models.account;
+                                    }
+                                    @if (us != null)
+                                    {
+
+                                        <a href="~/Checkout/CheckoutLogin?id=@goi.Id">Đăng ký</a>
+
+                                    }
+                                    else
+                                    {
+
+                                        <a href="~/Checkout/CheckoutNoLogin?id=@goi.Id">Đăng ký</a>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

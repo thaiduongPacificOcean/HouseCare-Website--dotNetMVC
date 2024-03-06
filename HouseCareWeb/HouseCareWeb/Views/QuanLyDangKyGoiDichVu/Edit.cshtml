@@ -1,0 +1,89 @@
+﻿@model HouseCareWeb.Models.dangkygoidichvu
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.Id)
+    <div class="info-acc">
+        <h2>Sửa thông tin đăng ký gói dịch vụ</h2>
+        <hr />
+        <div class="card-info">
+            <form action="/" method="post">
+                <div class="info-row">
+                    <div class="info-col">
+                        <label>Mã</label>
+                        <input type="text" name="Madangky" value="#@Model.Madangky" readonly />
+                    </div>
+                    <div class="info-col">
+                        <label>Mã tài khoản</label>
+                        <input type="text" name="Idtaikhoan" value="@Model.Idtaikhoan" readonly />
+                    </div>
+                    <div class="info-col">
+                        <label>Mã gói</label>
+
+                        <select name="Magoi">
+                            <option> Chọn loại dịch vụ </option>
+                            @foreach (var item in ViewBag.goidv)
+                            {
+                                <option value="@item.Magoi">@item.Tengoi ( @item.Madichvu )</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="info-col">
+                        <label>Ngày đăng ký</label>
+                        <input type="date" name="Ngaydangky" value="@Model.Ngaydangky" />
+                    </div>
+                    <div class="info-col">
+                        <label>Địa chỉ</label>
+                        <input type="text" name="Diachi" value="@Model.Diachi" />
+                    </div>
+
+                    <div class="info-col">
+                        <label>Yêu cầu</label>
+                        <input type="text" name="Yeucau" value="@Model.Yeucau" />
+                    </div>
+                    <div class="info-col">
+                        <label>Thời lượng</label>
+                        <input type="text" name="Thoiluong" value="@Model.Thoiluong" />
+                    </div>
+                    <div class="info-col">
+                        <label>Trạng thái</label>
+                        <select name="Trangthai">
+                            <option> Lựa chọn trạng thái xác nhận </option>
+                            {
+                            <option value="false"> Chờ xác nhận </option>
+                            <option value="true"> Duyệt  </option>
+                            }
+                        </select>
+                    </div>
+                    <div class="info-col">
+                        <label>Trạng thái</label>
+                        <select name="Active">
+                            <option> Lựa chọn trạng thái thực hiện </option>
+                            {
+                            <option value="false"> Chưa thực hiện </option>
+                            <option value="true"> Thực hiện  </option>
+                            }
+                        </select>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="btn-savechange">
+            <button type="submit">Lưu</button>
+        </div>
+
+    </div>
+}
+
+<div class="btn-admin">
+    <a href="~/QuanLyDangKyGoiDichVu/">
+        <button>Trờ về</button>
+    </a>
+</div>

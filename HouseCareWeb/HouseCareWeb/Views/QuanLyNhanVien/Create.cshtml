@@ -1,0 +1,194 @@
+﻿@model HouseCareWeb.Models.nhanvien
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Create", "QuanLyNhanVien", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+<div class="info-acc">
+    <h2>Thêm mới nhân viên</h2>
+    <hr />
+    <form action="/" method="post">
+        <div class="info-row">
+            <div class="info-col">
+                <label>Mã nhân viên</label>
+                <input type="text" name="Manhanvien" value="" />
+            </div>
+            <div class="info-col">
+                <label>Họ và tên</label>
+                <input type="text" name="Hoten" value="" />
+            </div>
+            <div class="info-col">
+                <label>Giới tính</label>
+                <input type="text" name="Gioitinh" value="" />
+            </div>
+            <div class="info-col">
+                <label>Địa chỉ</label>
+                <input type="text" name="Diachi" value="" />
+            </div>
+            <div class="info-col">
+                <label>Quê quán</label>
+                <input type="text" name="Quequan" value="" />
+            </div>
+            <div class="info-col">
+                <label>Chức vụ</label>
+                <input type="text" name="Chucvu" value="" />
+            </div>
+            <div class="info-col">
+                <label>Tuổi</label>
+                <input type="number" name="Tuoi" value="" required />
+            </div>
+            <div class="info-col">
+                <label>Ngày sinh</label>
+                <input type="date" name="Ngaysinh" value="" required />
+            </div>
+            <div class="info-col">
+                <label>CCCD/CMND</label>
+                <input type="text" name="CCCD" value="" />
+            </div>
+            <div class="info-col">
+                <label>Số điện thoại</label>
+                <input type="text" name="Sdt" value="" />
+            </div>
+            <div class="info-col">
+                <label>Email</label>
+                <input type="email" name="Email" value="" />
+            </div>
+            <div class="info-col">
+                <label>Mô tả</label>
+                <input type="text" name="Mota" value="" />
+            </div>
+            <div class="info-col">
+                <label>Kinh nghiệm</label>
+                <input type="text" name="Kinhnghiem" value="" />
+            </div>
+            <div class="info-col">
+                <label>Hình ảnh</label>
+                <input type="file" name="Img" value="" />
+            </div>
+
+
+        </div>
+    </form>
+    <div class="btn-savechange">
+        <button type="submit">Thêm</button>
+    </div>
+
+</div>
+
+}
+<div class="btn-savechange">
+    <a class="btn-admin" href="~/QuanLyNhanVien/">
+        <button>Trở về</button>
+    </a>
+</div>
+
+
+
+@*<div class="info-col">
+        <label>Họ và tên</label>
+        <input type="text" name="Hoten" value="" required />
+    </div>
+    <div class="info-col">
+        <label>Chức vụ</label>
+        <input type="text" name="Chucvu" value="" />
+    </div>
+    <div class="info-col">
+        <label>Số điện thoại</label>
+        <input type="text" name="Sdt" value="" required />
+    </div>
+    <div class="info-col">
+        <label>Tuổi</label>
+        <input type="text" name="Tuoi" value="" required />
+
+    </div>
+    <div class="info-col">
+        <label>Mô tả</label>
+        <input type="text" name="Mota" value="" />
+    </div>
+    <div class="info-col">
+        <label>Kinh nghiệm</label>
+        <input type="text" name="Kinhnghiem" value="" required />
+    </div>
+    <div class="info-col">
+        <label>Hình ảnh</label>
+        <input type="file" name="Img" value="" required />
+    </div>*@
+
+@*@using (Html.BeginForm("Create", "QuanLyNhanVien", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.Hoten, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Hoten, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Hoten, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Chucvu, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Chucvu, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Chucvu, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Img, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input title="Upload a product img" type="file" name="Img" class="img-input" />
+                    @Html.ValidationMessageFor(model => model.Img, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Tuoi, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Tuoi, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Tuoi, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Sdt, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Sdt, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Sdt, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Mota, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Mota, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Mota, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Kinhnghiem, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Kinhnghiem, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Kinhnghiem, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>*@

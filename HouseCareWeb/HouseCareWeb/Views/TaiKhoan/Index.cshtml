@@ -1,0 +1,184 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    var us = Session["Taikhoan"] as HouseCareWeb.Models.account;
+}
+<br />
+<br />
+
+<div id="wrapper">
+    <div class="container">
+        <div class="info-acc">
+            <h2>Thông tin cá nhân tài khoản</h2>
+            <br />
+            <div class="card-info">
+                <img src="~/img/@us.Img" alt="Alternate Text" />
+                <div class="card-info--btn">
+                    @*<a href="#">Upload new photo</a>
+                    <a href="#">Reset</a>
+                    <p>Allowed JPG, GIF or PNG. Max size of 800K</p>*@
+                </div>    
+            </div>
+            <hr />
+            <div class="card-info">
+                <form action="/" method="post">
+                    <div class="info-row">
+                        <div class="info-col">
+                            <label>Họ và tên</label>
+                            <input type="text" name="name" value="@us.Ten" />
+                        </div>
+                        <div class="info-col">
+                            <label>Email</label>
+                            <input type="email" name="name" value="@us.Email" />
+                        </div>
+                        <div class="info-col">
+                            <label>Số điện thoại</label>
+                            <input type="text" name="name" value="@us.Sdt" />
+                        </div>
+                        <div class="info-col">
+                            <label>Quyền</label>
+                            @if (us.Quyen == "ND")
+                            {
+                                <input type="text" name="name" value="Người dùng" />
+
+                            }
+                            else
+                            {
+                                <input type="text" name="name" value="@us.Quyen" />
+                            }
+                        </div>
+                        <div class="info-col">
+                            <label>Password</label>
+                            <input type="password" name="name" value="@us.Matkhau" />
+                        </div>
+                        <div class="info-col">
+                            <label>Địa chỉ</label>
+                            <input type="text" name="name" value="" />
+                        </div>
+                        <div class="info-col">
+                            <label>Quốc gia</label>
+                            <input type="text" name="name" value="Viet Nam" readonly />
+                        </div>
+                       
+                    </div>
+                    @*<div class="btn-savechange">
+                        <a href=""><button type="submit">Cập nhật thông tin</button></a>
+                    </div>*@
+
+                </form>
+            </div>
+        </div>
+        <div class="info-ser table-responsive text-nowrap">
+            <h2>Các gói đã đăng ký</h2>
+            <hr />
+            <div class="" >
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>@Html.DisplayName("Mã gói")</th>
+                            <th>@Html.DisplayName("Tên gói")</th>
+                            <th>@Html.DisplayName("Giá tiền")</th>
+                            <th>@Html.DisplayName("Loại dịch vụ")</th>
+                            <th>@Html.DisplayName("Ngày đăng ký")</th>
+                            <th>@Html.DisplayName("Địa chỉ")</th>
+                            <th>@Html.DisplayName("Ghi chú")</th>
+                            <th>@Html.DisplayName("Trạng thái xác nhận")</th>
+                            <th>@Html.DisplayName("Trạng thái thực hiện")</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in ViewBag.listdangkygoidichvu)
+                        {
+                            <tr>
+                                <td>
+                                    @foreach (var i in ViewBag.listgoidicvu)
+                                    {
+                                        if (item.Magoi == i.Id)
+                                        {
+                                            <h5>#@i.Magoi</h5>
+                                        }
+                                    }
+                                </td>
+                                <td>
+                                    @foreach (var i in ViewBag.listgoidicvu)
+                                    {
+                                        if (item.Magoi == i.Id)
+                                        {
+                                            <h5>@i.Tengoi</h5>
+                                        }
+                                    }
+                                </td>
+                                <td>
+                                    @foreach (var i in ViewBag.listgoidicvu)
+                                    {
+                                        if (item.Magoi == i.Id)
+                                        {
+                                            <h5>@i.Giatien</h5>
+                                        }
+                                    }
+                                </td>
+                                <td>
+                                    @foreach (var i in ViewBag.listgoidicvu)
+                                    {
+                                        foreach (var j in ViewBag.loaidichvu)
+                                        {
+                                            if (item.Magoi == i.Id)
+                                            {
+                                                if (i.Madichvu == j.Id)
+                                                {
+                                                    <h5>@j.Tendichvu</h5>
+                                                }
+                                            }
+                                        }
+                                    }
+                                </td>
+                                <td>
+                                    <h5>@Convert.ToDateTime(item.Ngaydangky).ToString("MM/dd/yyyy")</h5>
+                                </td>
+                                <td>
+                                    <h5>@item.Diachi</h5>
+                                </td>
+                                <td>
+                                    <h5>@item.Yeucau</h5>
+                                </td>
+                                @if (item.Trangthai == true)
+                                {
+                                    <td>
+                                        <h5>Đã duyệt</h5>
+                                    </td>
+                                }
+                                else
+                                {
+                                    <td>
+                                        <h5>Chờ xác nhận</h5>
+                                    </td>
+                                }
+                                @if (item.Active == true)
+                                {
+                                    <td>
+                                        <h5>Đã thực hiện</h5>
+                                    </td>
+                                }
+                                else
+                                {
+                                    <td>
+                                        <h5>Chưa thực hiện</h5>
+                                    </td>
+                                }
+
+                            </tr>
+                        }
+                        
+                    </tbody>
+
+                </table>
+
+            </div>
+        </div>
+        
+    </div>
+</div>

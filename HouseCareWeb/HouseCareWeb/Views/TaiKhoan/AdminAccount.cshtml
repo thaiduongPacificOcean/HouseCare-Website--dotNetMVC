@@ -1,0 +1,207 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+@{
+    var us = Session["Taikhoan"] as HouseCareWeb.Models.account;
+}
+<br />
+<br />
+@{
+    String iconClass = "";
+    if (ViewBag.iconClass == "fa-solid fa-sort-down")
+    {
+        iconClass = "fa-solid fa-sort-up";
+    }
+    else
+    {
+        iconClass = "fa-solid fa-sort-down";
+    }
+}
+
+<div id="wrapper">
+    <div class="">
+        <div class="info-acc">
+            <h2 style="text-align : center">Thông tin tài khoản</h2>
+            <hr />
+            <div class="card-info">
+                <img src="~/img/@us.Img" alt="Alternate Text" />
+                <div class="card-info--btn">
+                </div>
+            </div>
+            <hr />
+            <div class="card-info">
+                <form action="/" method="post">
+                    <div class="info-row">
+                        <div class="info-col">
+                            <label>Họ và tên</label>
+                            <input type="text" name="name" value="@us.Ten" />
+                        </div>
+                        <div class="info-col">
+                            <label>Email</label>
+                            <input type="email" name="name" value="@us.Email" />
+                        </div>
+                        <div class="info-col">
+                            <label>Số điện thoại</label>
+                            <input type="text" name="name" value="@us.Sdt" />
+                        </div>
+                        <div class="info-col">
+                            <label>Quyền</label>
+                            @if (us.Quyen == "ND")
+                            {
+                                <input type="text" name="name" value="Người dùng" />
+
+                            }
+                            else
+                            {
+                                <input type="text" name="name" value="@us.Quyen" />
+                            }
+                        </div>
+                        <div class="info-col">
+                            <label>Password</label>
+                            <input type="password" name="name" value="@us.Matkhau" />
+                        </div>
+                       
+                        <div class="info-col">
+                            <label>Quốc gia</label>
+                            <input type="text" name="name" value="Viet Nam" readonly />
+                        </div>
+
+                    </div>
+          
+                </form>
+            </div>
+        </div>
+        <div class="table-responsive text-nowrap info-ser">
+            <h2 style="text-align:center">Các gói đã đăng ký chưa duyệt </h2>
+            <hr />
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>@Html.DisplayName("Id")</th>
+                            <th>@Html.DisplayName("Tên gói")</th>
+                            <th>@Html.DisplayName("Giá tiền")</th>
+                            <th>@Html.DisplayName("Loại dịch vụ")</th>
+                            <th>@Html.DisplayName("Ngày đăng ký")</th>
+                            <th>@Html.DisplayName("Địa chỉ")</th>
+                            <th>@Html.DisplayName("Ghi chú")</th>
+                            <th>@Html.DisplayName("Trạng thái")</th>
+                            <th>@Html.DisplayName("Duyệt")</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in ViewBag.listdangkygoidichvu)
+                        {
+                            <tr>
+                                <td>
+                                    @foreach (var i in ViewBag.listgoidicvu)
+                                    {
+                                        if (item.Magoi == i.Id)
+                                        {
+                                            <h5>@item.Id</h5>
+                                        }
+                                    }
+                                </td>
+                                <td>
+                                    @foreach (var i in ViewBag.listgoidicvu)
+                                    {
+                                        if (item.Magoi == i.Id)
+                                        {
+                                            <h5>@i.Tengoi</h5>
+                                        }
+                                    }
+                                </td>
+                                <td>
+                                    @foreach (var i in ViewBag.listgoidicvu)
+                                    {
+                                        if (item.Magoi == i.Id)
+                                        {
+                                            <h5>@i.Giatien</h5>
+                                        }
+                                    }
+                                </td>
+                                <td>
+                                    @foreach (var i in ViewBag.listgoidicvu)
+                                    {
+                                        foreach (var j in ViewBag.loaidichvu)
+                                        {
+                                            if (item.Magoi == i.Id)
+                                            {
+
+                                                if (i.Madichvu == j.Id)
+                                                {
+                                                    <h5>@j.Tendichvu</h5>
+                                                }
+
+                                            }
+                                        }
+                                    }
+                                </td>
+                                <td>
+                                    <h5>@Convert.ToDateTime(item.Ngaydangky).ToString("MM/dd/yyyy")</h5>
+                                </td>
+                                <td>
+                                    <h5>@item.Diachi</h5>
+                                </td>
+                                <td>
+                                    <h5>@item.Yeucau</h5>
+                                </td>
+                                <td>
+                                    @if (item.Trangthai == false)
+                                    {
+                                        <h5>Chưa duyệt</h5>
+                                    }
+                                </td>
+                                <td>
+                                    <a href="~/QuanLyDangKyGoiDichVu/Duyet/@item.Id">Duyệt</a>
+                                </td>
+                            </tr>
+                        }
+                        <!---->
+                        <tr>
+                            @{
+                                int PrePage = ViewBag.Page - 1;
+                                if (PrePage <= 0)
+                                {
+                                    PrePage = 1;
+                                }
+                                int NextPage = ViewBag.Page + 1;
+                                if (NextPage > ViewBag.NoOfPages)
+                                {
+                                    NextPage = ViewBag.NoOfPages;
+                                }
+                            }
+                            <td colspan="9" class="page-div">
+                                <ul class="pagination">
+                                    <li class="page-item ">
+                                        <a style="border-radius:0" class="page-link" href="/TaiKhoan/AdminAccount?sortColumn=@ViewBag.sortColumn&iconClass=@ViewBag.iconClass&page=@PrePage">Trước</a>
+                                    </li>
+                                    @for (int i = 0; i < ViewBag.NoOfPages; i++)
+                                    {
+                                        if (i + 1 == ViewBag.Page)
+                                        {
+                                            <li class="page-item active">
+                                                <a style="border-radius:0" class="page-link" href="/TaiKhoan/AdminAccount?sortColumn=@ViewBag.sortColumn&iconClass=@ViewBag.iconClass&page=@(i+1)">@(i+1)</a>
+                                            </li>
+                                        }
+                                        else
+                                        {
+                                            <li class="page-item ">
+                                                <a style="border-radius:0" class="page-link" href="/TaiKhoan/AdminAccount?sortColumn=@ViewBag.sortColumn&iconClass=@ViewBag.iconClass&page=@(i+1)">@(i+1)</a>
+                                            </li>
+                                        }
+
+                                    }
+                                    <li class="page-item ">
+                                        <a style="border-radius:0" class="page-link" href="/TaiKhoan/AdminAccount?sortColumn=@ViewBag.sortColumn&iconClass=@ViewBag.iconClass&page=@NextPage">Sau</a>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+</div>
+

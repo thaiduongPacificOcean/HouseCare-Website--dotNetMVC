@@ -1,0 +1,65 @@
+﻿@model HouseCareWeb.Models.account
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+
+@using (Html.BeginForm("Edit", "QuanLyTaiKhoan", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.Id)
+
+    <div class="info-acc">
+        <h2>Sửa thông tin tài khoản</h2>
+        <hr />
+        <div class="card-info">
+            <form action="/" method="post">
+                <div class="info-row">
+                    <div class="info-col">
+                        <label>Mã tài khoản</label>
+                        <input type="text" name="Mataikhoan" value="#@Model.Mataikhoan" readonly />
+                    </div>
+                    <div class="info-col">
+                        <label>Tài khoản</label>
+                        <input type="text" name="Taikhoan" value="@Model.Taikhoan" />
+                    </div>
+                    <div class="info-col">
+                        <label>Mật khẩu</label>
+                        <input type="text" name="Matkhau" value="@Model.Matkhau" />
+                    </div>
+                    <div class="info-col">
+                        <label>Email</label>
+                        <input type="email" name="Email" value="@Model.Email" />
+                    </div>
+                    <div class="info-col">
+                        <label>Tên</label>
+                        <input type="text" name="Ten" value="@Model.Ten" />
+                    </div>
+                    <div class="info-col">
+                        <label>Số điện thoại</label>
+                        <input type="text" name="Sdt" value="@Model.Sdt" />
+                    </div>
+                    <div class="info-col">
+                        <label>Quyền</label>
+                        <input type="text" name="Quyen" value="@Model.Quyen" />
+                    </div>
+                    <div class="info-col">
+                        <label>Hình ảnh</label>
+                        <input type="file" name="Img" value="@Model.Img" />
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="btn-savechange">
+            <button type="submit">Lưu</button>
+        </div>
+
+    </div>
+
+}
+<div class="btn-admin">
+    <a href="~/QuanLyTaiKhoan/"><button>Trở về</button></a>
+</div>
+

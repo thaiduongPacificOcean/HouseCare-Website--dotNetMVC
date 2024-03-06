@@ -1,0 +1,45 @@
+﻿@model HouseCareWeb.Models.account
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Đăng nhập";
+
+}
+<div id="wrapper">
+    <div class="container">
+        <div class="form-center">
+            <div class="login-form">
+                <div class="form-title">
+                    <h2>Đăng Nhập</h2>
+                </div>
+                <div class="form-content">
+                    @using (Html.BeginForm("Login", "Login", FormMethod.Post))
+                    {
+
+                        @Html.AntiForgeryToken()
+                        <form>
+                            <div class="form-login">
+                                <hr>
+                                @Html.ValidationSummary()
+                                <label><b>Tài Khoản</b></label>
+                                <input  type="text" placeholder="Nhập tài khoản" name="Taikhoan" required>
+
+                                <label><b>Mật khẩu</b></label>
+                                <input  type="password" placeholder="Nhập mật khẩu" name="Matkhau" required>
+
+
+                                <button type="submit" class="registerbtn">Đăng nhập </button>
+
+                                <div class="signin">
+                                    <p>Nếu chưa có tài khoản ? @Html.ActionLink("Đăng ký tại đây", "Dangky", "Login")</p>
+                                </div>
+                            </div>
+
+                        </form>
+                    }
+                </div>
+            </div>
+        </div> 
+    </div>
+</div>
+

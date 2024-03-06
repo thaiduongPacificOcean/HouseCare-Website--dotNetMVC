@@ -1,0 +1,172 @@
+﻿
+@{
+    ViewBag.Title = "Vệ sinh công nghiệp";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<!-- Dịch vụ Vệ sinh công nghiệp -->
+<br />
+
+<div id="wrapper">
+    <div class="container">
+        @*<div class="item-title">
+                <h4>HouseCare</h4>
+                <h2>Giúp việc nhà theo giờ</h2>
+            </div>*@
+        <div class="page-title">
+            <div class="page-title--btn">
+                <a href="">Trang chủ</a>
+                <i class="fa-solid fa-angle-right"></i>
+                <span>Vệ sinh công nghiệp</span>
+            </div>
+        </div>
+
+        <div class="service">
+            <div class="service-thumb-3">
+                <!-- Sidebar -->
+                <div class="sidebar">
+                    <ul>
+                        <li>
+                            @Html.ActionLink("Việc nhà theo giờ", "Viecnha", "DichVu")
+                        </li>
+                        <li>
+                            @Html.ActionLink("Vệ sinh công nghiệp", "Vesinhcongnghiep", "DichVu")
+                        </li>
+                        <li>
+                            @Html.ActionLink("Sửa chữa điện lạnh", "Suachuadienlanh", "DichVu")
+                        </li>
+                        <li>
+                            @Html.ActionLink("Chăm sóc mẹ và bé", "Chamsocmevabe", "DichVu")
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Bài báo -->
+
+                <div class="post">
+                    <div class="item-title">
+                        <h3>Recent Posts</h3>
+                    </div>
+                    <div class="post-thumb">
+                        <div class="post-item">
+                            <img src="~/img/notify-1.jpg" alt="Alternate Text" />
+                            <div class="post-text">
+                                <span>17 June, 2022</span>
+                                <a href="">Dịch vụ chăm sóc mẹ sau sinh uy tín chất lượng  - liên hệ ngay HouseCare</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="post-thumb">
+                        <div class="post-item">
+                            <img src="~/img/notify-2.jpg" alt="Alternate Text" />
+                            <div class="post-text">
+                                <span>17 June, 2022</span>
+                                <a href="">Khám phá dịch vụ sửa chữa tủ lạnh  - liên hệ ngay HouseCare</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="post-thumb">
+                        <div class="post-item">
+                            <img src="~/img/notify-3.jpg" alt="Alternate Text" />
+                            <div class="post-text">
+                                <span>17 June, 2022</span>
+                                <a href="">Cách thức mua bảo hiểm Housecare đơn giản ngay tại nhà</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="post-thumb">
+                        <div class="post-item">
+                            <img src="~/img/notify-4.png" alt="Alternate Text" />
+                            <div class="post-text">
+                                <span>17 June, 2022</span>
+                                <a href="">Credify hợp tác Bảo Hiểm HD triển khai bảo hiểm số trên nền tảng HouseCare</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Liên hệ -->
+                <img src="~/img/lienhe.jpg" alt="Alternate Text" />
+            </div>
+            <div class="service-thumb-7">
+                <div class="service-title">
+                    <h3>
+                        Bảng Giá Dịch vụ vệ sinh Công nghiệp
+                    </h3>
+                </div>
+                <div class="sv-content">
+                    @foreach (var goi in ViewBag.goidichvu)
+                    {
+                        <div class="content-item">
+                            <div class="content-heading">
+                                <i class="fa-solid fa-minus"></i>
+                                <h3>Đơn giá</h3>
+                            </div>
+                            <div class="content-body">
+
+                                <p>Giá khảo sát khối lượng công việc là: <strong>@goi.Giatien</strong></p>
+                                
+                            </div>
+                        </div>
+                        <div class="content-item">
+                            <div class="content-heading">
+                                <i class="fa-solid fa-minus"></i>
+                                <h3>Mô tả công việc</h3>
+                            </div>
+                            <div class="content-body">
+                                <ul>
+                                    <li>Vệ sinh sàn, trần nhà</li>
+                                    <li>Đánh bóng và làm sạch các loại sàn (gạch Tàu, gạch men, đá,…).</li>
+                                    <li>Giặt các loại thảm sàn, ghế VP, ghế sofa</li>
+                                    <li>Vệ sinh kính văn phòng và kính nhà cao tầng.</li>
+                                    <li>Tổng vệ sinh các công trình sau xây dựng.</li>
+                                    <li>Làm sạch và tẩy rửa vệ sinh các công trình biệt thự, toà nhà cao tầng sau xây dựng.</li>
+                                    <li>Vệ sinh trần, tường, sàn, nhà vệ sinh, đèn, cửa sổ, cửa ra vào, vệ sinh nhôm kính, alu mặt dựng tòa nhà.</li>
+                                    <li>Tẩy rửa xi măng, sơn, PU, tẩy trắng ron.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="content-item">
+                            <div class="content-heading">
+                                <i class="fa-solid fa-minus"></i>
+                                <h3>Quy trình làm việc</h3>
+                            </div>
+                            <div class="content-body">
+                                <ul>
+                                    <li>Tiếp nhận yêu cầu Khách Hàng.</li>
+                                    <li>Hẹn thời gian khảo sát thực trạng</li>
+                                    <li>Đưa ra bảng báo giá.</li>
+                                    <li>
+                                        Nếu khách hàng đồng ý báo giá thì nhân viên sẽ tiến hành thực hiện dịch vụ.
+                                        Trong trường hợp Khách hàng không đồng ý thì Khách hàng chỉ thanh toán chi phí khảo sát tối thiểu.
+                                    </li>
+                                    <li>Tiến hành công việc.</li>
+                                    <li>Nghiệm thu & Hoàn thành.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="dangky-btn">
+                            @{
+                                var us = Session["Taikhoan"] as HouseCareWeb.Models.account;
+                            }
+                            @if (us != null)
+                            {
+
+                                <a href="~/Checkout/CheckoutLogin?id=@goi.Id">Đăng ký tại đây</a>
+
+                            }
+                            else
+                            {
+
+                                <a href="~/Checkout/CheckoutNoLogin?id=@goi.Id">Đăng ký tại đây</a>
+                            }
+                        </div>
+                     }
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

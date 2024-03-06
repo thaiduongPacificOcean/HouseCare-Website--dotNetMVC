@@ -1,0 +1,50 @@
+﻿@model HouseCareWeb.Models.goidichvu
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+<div class="info-acc">
+    <h2>Xác nhận xóa thông tin gói dịch vụ</h2>
+    <hr />
+    <div class="card-info">
+        <form action="/QuanLyGoiDichVu/Delete/@Model.Id" method="post">
+            <div class="info-row">
+                <div class="info-col">
+                    <label>Mã gói</label>
+                    <input type="text" name="Magoi" value="#@Model.Magoi" readonly />
+                </div>
+                <div class="info-col">
+                    <label>Tên gói</label>
+                    <input type="text" name="Tengoi" value="@Model.Tengoi" />
+                </div>
+                <div class="info-col">
+                    <label>Giá tiền</label>
+                    <input type="text" name="Giatien" value="@Model.Giatien" required />
+                </div>
+                <div class="info-col">
+                    <label>Mã dịch vụ</label>
+                    <input type="text" name="Madichvu" value="@Model.Madichvu" />
+                </div>
+                <div class="info-col">
+                    <label>Detail</label>
+                    <input type="text" name="Detail" value="@Model.Detail" />
+                </div>
+                <div class="info-col">
+                    <label>Loại</label>
+                    <input type="text" name="Loai" value="@Model.Loai" />
+                </div>
+            </div>
+            <div class="btn-delete">
+                <button type="submit">Xóa gói dịch vụ</button>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="btn-admin">
+    <a href="~/QuanLyGoiDichVu/">
+        <button>Trở về</button>
+    </a>
+</div>
+

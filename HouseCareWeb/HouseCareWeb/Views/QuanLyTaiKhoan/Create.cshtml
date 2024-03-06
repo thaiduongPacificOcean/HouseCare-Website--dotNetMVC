@@ -1,0 +1,59 @@
+﻿@model HouseCareWeb.Models.account
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+
+@using (Html.BeginForm("Create", "QuanLyTaiKhoan", FormMethod.Post, new { enctype = "multipart/form-data" })) 
+{
+    @Html.AntiForgeryToken()
+<div class="info-acc">
+    <h2>Thêm tài khoản</h2>
+    <hr />
+    <div class="card-info">
+        <form action="/" method="post">
+            <div class="info-row">
+                <div class="info-col">
+                    <label>Mã tài khoản</label>
+                    <input type="text" name="Mataikhoan" value="" required />
+                </div>
+                <div class="info-col">
+                    <label>Tài khoản</label>
+                    <input type="text" name="Taikhoan" value="" required/>
+                </div>
+                <div class="info-col">
+                    <label>Mật khẩu</label>
+                    <input type="text" name="Matkhau" value="" required/>
+                </div>
+                <div class="info-col">
+                    <label>Email</label>
+                    <input type="email" name="Email" value="" required/>
+                </div>
+                <div class="info-col">
+                    <label>Tên</label>
+                    <input type="text" name="Ten" value="" required/>
+                </div>
+                <div class="info-col">
+                    <label>Số điện thoại</label>
+                    <input type="text" name="Sdt" value="" required/>
+                </div>
+                <div class="info-col">
+                    <label>Hình ảnh</label>
+                    <input type="file" name="Img" value=""  />
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="btn-savechange">
+        <button type="submit">Lưu</button>
+    </div>
+
+</div>
+    
+}
+<div class="btn-admin">
+    <a href="~/QuanLyTaiKhoan/"><button>Trở về</button></a>
+</div>
+

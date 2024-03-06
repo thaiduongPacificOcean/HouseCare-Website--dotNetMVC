@@ -1,0 +1,355 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/Content/main.css" rel="stylesheet" />
+    <link href="~/Content/responsive.css" rel="stylesheet" />
+    <link href="~/fonts/fontawesome-free-6.2.0-web/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9.0.5/swiper-bundle.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,500,600,700&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <title>@ViewBag.Title</title>
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" title="more options">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("LETMECARE JSC ", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Tuyển dụng", "Tuyendung", "Home")</li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dịch vụ <span class="caret"></span></a>
+                        <ul class="dropdown-menu" id="myDrop" runat="server">
+                            <li>@Html.ActionLink("Việc nhà theo giờ", "Viecnha", "DichVu")</li>
+                            <li>@Html.ActionLink("Vệ sinh Công nghiệp", "Vesinhcongnghiep", "DichVu")</li>
+                            <li>@Html.ActionLink("Sửa chữa điện lạnh", "Suachuadienlanh", "DichVu")</li>
+                            <li>@Html.ActionLink("Chăm sóc mẹ và bé", "Chamsocmevabe", "DichVu")</li>
+                        </ul>
+                    </li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+
+                    @*@{
+                            var us = Session["Taikhoan"] as HouseCareWeb.Models.account;
+                            string quyen = null;
+                            string ad = null;
+                            string nv = null;
+                            string ngdung = null;
+
+                            if (us != null)
+                            {
+                                quyen = @us.Quyen as string;
+                                ad = "Admin";
+                                nv = "NV";
+                                ngdung = "ND";
+                            }
+
+                        }
+                        @if (quyen == null)
+                        {
+                            <li>@Html.ActionLink("Đăng nhập / Đăng ký", "Index", "Login")</li>
+                        }
+                        else
+                        {
+                            if (quyen == ad || quyen == nv)
+                            {
+                                <li class="dropdown">
+                                    <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">@us.Taikhoan <span class="caret"></span></a>
+                                    <ul class="dropdown-menu" id="myDrop" runat="server">
+                                        <li>@Html.ActionLink("Logout", "Logout", "Login")</li>
+                                        <li>@Html.ActionLink("Quản lý", "Index", "Admin")</li>
+                                    </ul>
+                                </li>
+                            }
+                            if (quyen != ad && quyen != nv)
+                            {
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">@us.Taikhoan <span class="caret"></span></a>
+                                    <ul class="dropdown-menu" id="myDrop" runat="server">
+                                        <li>
+                                            @Html.ActionLink("Logout", "Logout", "Login")
+                                        </li>
+                                        <li>@Html.ActionLink("Thông tin tài khoản", "Index", "Taikhoan")</li>
+
+                                    </ul>
+                                </li>
+                            }
+                        }*@
+
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    @{
+                        var us = Session["Taikhoan"] as HouseCareWeb.Models.account;
+                        string quyen = null;
+                        string ad = null;
+                        string nv = null;
+                        string ngdung = null;
+
+                        if (us != null)
+                        {
+                            quyen = @us.Quyen as string;
+                            ad = "Admin";
+                            nv = "NV";
+                            ngdung = "ND";
+                        }
+
+                    }
+                    @if (quyen == null)
+                    {
+                        <li>@Html.ActionLink("Đăng nhập / Đăng ký", "Index", "Login")</li>
+                    }
+                    else
+                    {
+                        if (quyen == ad || quyen == nv)
+                        {
+                            <li class="dropdown">
+                                <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">@us.Taikhoan <span class="caret"></span></a>
+                                <ul class="dropdown-menu" id="myDrop" runat="server">
+                                    <li>@Html.ActionLink("Logout", "Logout", "Login")</li>
+                                    <li>@Html.ActionLink("Quản lý", "AdminAccount", "Taikhoan")</li>
+                                </ul>
+                            </li>
+                        }
+                        if (quyen != ad && quyen != nv)
+                        {
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">@us.Taikhoan <span class="caret"></span></a>
+                                <ul class="dropdown-menu" id="myDrop" runat="server">
+                                    <li>
+                                        @Html.ActionLink("Logout", "Logout", "Login")
+                                    </li>
+                                    <li>@Html.ActionLink("Thông tin tài khoản", "Index", "Taikhoan")</li>
+
+                                </ul>
+                            </li>
+                        }
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    @RenderBody()
+
+    <footer>
+        <div class="footer">
+            <div class="container">
+                <div class="myfooter">
+                    <div class="ft-thumb">
+                        <div class="ft-item">
+                            <div class="item-title">
+                                <h4>Liên hệ</h4>
+                            </div>
+                            <br />
+                            <ul>
+                                <li>
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    189 Đường số 2 ,phường 13, quận 6, Tp.HCM
+                                </li>
+                                <li>
+                                    <i class="fa-solid fa-envelope"></i>
+                                    <a href="#">thaibinhduong@gmail.com</a>
+                                </li>
+                                <li>
+                                    <i class="fa-solid fa-phone"></i>
+                                    1800 1010
+                                </li>
+                                <li>
+                                    <i class="fa-solid fa-globe"></i>
+                                    http:/letmecare.vn
+                                </li>
+                                <li>
+                                    <i class="fa-solid fa-clock"></i>
+                                    Thứ 2 đến Thứ 7
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="ft-thumb">
+                        <div class="ft-item">
+                            <div class="item-title">
+                                <h4>Chi nhánh</h4>
+                            </div>
+                            <br />
+                            <ul>
+                                <li>
+                                    189 Đường số 2 ,phường 13, quận 6, Tp.HCM
+                                </li>
+                                <br />
+
+                                <li>
+                                    112 Lê Tuấn Mậu ,phường 13, quận 6, Tp.HCM
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="ft-thumb">
+                        <div class="ft-item">
+                            <div class="item-title">
+                                <h4>Bài viết</h4>
+                            </div>
+                            <br />
+                            <div class="baiviet">
+                                <img src="~/img/notify-1.jpg" alt="Alternate Text" />
+
+                                <div class="baiviet-text">
+                                    <span>17 June , 2022 </span>
+                                    <a href="">Khám phá dịch vụ sửa chữa tủ lạnh tại HouseCare</a>
+                                </div>
+                            </div>
+                            <div class="baiviet">
+                                <img src="~/img/notify-2.jpg" alt="Alternate Text" />
+
+                                <div class="baiviet-text">
+                                    <span>17 June , 2022 </span>
+                                    <a href="">Khám phá dịch vụ sửa chữa tủ lạnh tại HouseCare</a>
+                                </div>
+                            </div>
+                            <div class="baiviet">
+                                <img src="~/img/notify-3.jpg" alt="Alternate Text" />
+
+                                <div class="baiviet-text">
+                                    <span>17 June , 2022 </span>
+                                    <a href="">Khám phá dịch vụ sửa chữa tủ lạnh tại HouseCare</a>
+                                </div>
+                            </div>
+                            <div class="baiviet">
+                                <img src="~/img/notify-5.jpg" alt="Alternate Text" />
+
+                                <div class="baiviet-text">
+                                    <span>17 June , 2022 </span>
+                                    <a href="">Khám phá dịch vụ sửa chữa tủ lạnh tại HouseCare</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ft-thumb">
+                        <div class="ft-item">
+                            <div class="item-title">
+                                <h4>Hình ảnh</h4>
+                            </div>
+                            <br />
+                            
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <div class="footer-down">
+                    <h6>Copyright © 2021 LetMeCare. All rights reserved.</h6>
+                    <div class="icon-footer">
+                        <i class="fa-brands fa-facebook-f"></i>
+                        <i class="fa-solid fa-heart"></i>
+                        <i class="fa-brands fa-twitter"></i>
+                        <i class="fa-solid fa-dice-two"></i>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+    <div class="none-backtop">
+        <div class="backtop">
+            <i class="fa-solid fa-chevron-up"></i>
+        </div>
+    </div>
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+
+<!-- SCRIPT -->
+
+
+<script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+
+<Script>
+    $(document).ready(function () {
+        $(window).scroll(function () {
+            if ($(this).scrollTop()) {
+                $('.backtop').fadeIn();
+            }
+            else {
+                $('.backtop').fadeOut();
+            }
+        });
+        $('.backtop').click(function () {
+            $('html,body').animate({
+                scrollTop: 0
+            }, 500);
+
+        });
+    });
+</Script>
+
+<script>
+    let slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) { slideIndex = 1 }
+
+        slides[slideIndex - 1].style.display = "block";
+
+        setTimeout(showSlides, 5000);
+    }
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $("#flip").click(function () {
+            $("#panel").slideToggle("slow");
+        });
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        $("#flip0").click(function () {
+            $("#panel0").slideToggle("slow");
+        });
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        $("#flip1").click(function () {
+            $("#panel1").slideToggle("slow");
+        });
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        $("#flip2").click(function () {
+            $("#panel2").slideToggle("slow");
+        });
+    });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@9.0.5/swiper-bundle.min.js"></script>
+
+
+</html>
+

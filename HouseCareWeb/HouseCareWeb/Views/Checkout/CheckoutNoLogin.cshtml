@@ -1,0 +1,102 @@
+﻿
+@{
+    ViewBag.Title = "CheckoutNoLogin";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+
+<div id="wrapper">
+    <div class="container">
+        <div class="contact">
+            <div class="contact-thumb6">
+                <div class="info-acc">
+                    <h2 style="text-align : center">Thông tin người đăng ký</h2>
+                    @*<input type="text" name="idgoi" value="@ViewData["idmagoi"]"  readonly/>*@
+                    <hr />
+                    <form action="/Checkout/ConfirmCheckoutNoLogin" method="post" id="form">
+                        <div class="row-contact">
+                            <div class="col-contact">
+                                <div class="contact-item">
+                                    <i class="fa-regular fa-user"></i>
+                                    <input type="text" name="Hoten" placeholder="Họ và tên" />
+                                </div>
+                                <div class="contact-item">
+                                    <i class="fa-solid fa-phone-volume"></i>
+                                    <input type="text" name="Sdt" placeholder="Số điện thoại" />
+                                </div>
+                            </div>
+                            <div class="col-contact">
+                                <div class="contact-item">
+                                    <i class="fa-regular fa-envelope"></i>
+                                    <input type="email" name="Email" placeholder="Email" />
+                                </div>
+                                <div class="contact-item">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <input type="text" name="Diachi" placeholder="Địa chỉ" />
+                                </div>
+                            </div>
+                            <div class="col-contact">
+                                <div class="contact-item">
+                                    <i class="fa-solid fa-calendar-days"></i>
+                                    <input type="date" name="Ngaydangky" />
+                                </div>
+                            </div>
+                            <div class="col-contact">
+                                <div class="contact-item">
+                                    <i class="fa-regular fa-clock"></i>
+                                    <input type="time" name="Gio" />
+                                </div>
+                            </div>
+                            <input type="hidden" name="idgoi" value="@ViewData["idmagoi"]" />
+
+                        </div>
+                        <div class="row-contact">
+                            @*<i class="fa-regular fa-message"></i>*@
+                            @*<label>Ghi chú</label>*@
+                            <textarea name="Yeucau" placeholder="Mô tả chi tiết yêu cầu công việc"></textarea>
+                        </div>
+                        <div class="checkout-btn">
+                            <button id="dangky" type="submit">Đăng ký</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="contact-thumb4">
+                <div class="info-acc">
+                    <h2 style="text-align:center">Thông tin gói dịch vụ</h2>
+                    <hr />
+                            <div class="info-col_full">
+                                <label>Mã gói</label>
+                                <input type="text" value="#@ViewBag.goidichvudachon.Magoi" readonly />
+                            </div>
+                            <div class="info-col_full">
+                                <label>Tên gói</label>
+                                <input type="text" value="@ViewBag.goidichvudachon.Tengoi" readonly/>
+                            </div>
+                            <div class="info-col_full">
+                                <label>Giá tiền</label>
+                                <input type="text" value="@ViewBag.goidichvudachon.Giatien VND"  readonly/>
+                            </div>
+                            <div class="info-col_full">
+                                <label>Loại dịch vụ</label>
+                                @foreach (var item in ViewBag.dv)
+                                {
+                                    if (ViewBag.goidichvudachon.Madichvu == item.Id)
+                                    {
+                                        <input type="text" value="@item.Tendichvu" readonly/>
+                                    }
+                                }
+                            </div>
+                            <hr />
+                            <div class="info-col_full">
+                                <label>Tổng tiền cho <strong>1</strong> giờ</label>
+                                <input type="text" value="@ViewBag.goidichvudachon.Giatien VND" readonly />
+                            </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+

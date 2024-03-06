@@ -1,0 +1,51 @@
+﻿@model HouseCareWeb.Models.Post
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Edit", "BaiViet", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.HiddenFor(model => model.Id)
+
+    <div class="info-acc">
+        <h2>Thông tin bài viết</h2>
+        <hr />
+        <div class="card-info">
+            <form action="/" method="post">
+                <div class="info-row">
+                    <div class="info-col">
+                        <label>Mã bài viết</label>
+                        <input type="text" name="Manhanvien" value="@Model.Id" readonly />
+                    </div>
+                    <div class="info-col">
+                        <label>Tên bài viết</label>
+                        <input type="text" name="Ten" value="@Model.Ten" />
+                    </div>
+                    <div class="info-col">
+                        <label>Mô tả</label>
+                        <input type="text" name="Mota" value="@Model.Mota" />
+                    </div>
+                    <div class="info-col">
+                        <label>Ngày đăng</label>
+                        <input type="date" name="Ngaydang" value="@Model.Ngaydang" />
+                    </div>
+                    <div class="info-col">
+                        <label>Hình ảnh</label>
+                        <input type="file" name="Img" value="@Model.Img" />
+                    </div>
+
+                </div>
+            </form>
+        </div>
+        <div class="btn-savechange">
+            <button type="submit">Lưu</button>
+        </div>
+
+    </div>
+}
+<div class="btn-savechange">
+    <a class="btn-admin" href="~/BaiViet/"><button>Trở về</button></a>
+</div>
+

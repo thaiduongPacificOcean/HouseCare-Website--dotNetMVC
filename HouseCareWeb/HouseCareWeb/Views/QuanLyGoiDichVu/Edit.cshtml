@@ -1,0 +1,67 @@
+﻿@model HouseCareWeb.Models.goidichvu
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.Id)
+
+    <div class="info-acc">
+        <h2>Sửa thông tin gói dịch vụ</h2>
+        <br />
+        <hr />
+        <div class="card-info">
+            <form action="/" method="post">
+                <div class="info-row">
+                    <div class="info-col">
+                        <label>Mã gói</label>
+                        <input type="text" name="Magoi" value="#@Model.Magoi" readonly />
+                    </div>
+                    <div class="info-col">
+                        <label>Tên gói</label>
+                        <input type="text" name="Tengoi" value="@Model.Tengoi" />
+                    </div>
+                    <div class="info-col">
+                        <label>Giá tiền</label>
+                        <input type="text" name="Giatien" value="@Model.Giatien" required />
+                    </div>
+                    <div class="info-col">
+                        <label>Mã dịch vụ</label>
+                        <select name="Madichvu" >
+                            <option> Chọn loại dịch vụ </option>
+                            @foreach (var item in ViewBag.goidichvuList)
+                            {
+                                <option value="@item.Id">@item.Tendichvu</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="info-col">
+                        <label>Detail</label>
+                        <input type="text" name="Detail" value="@Model.Detail" />
+                    </div>
+                    <div class="info-col">
+                        <label>Loại</label>
+                        <input type="text" name="Loai" value="@Model.Loai" />
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="btn-savechange">
+            <button type="submit">Lưu</button>
+        </div>
+    
+    </div>
+}
+
+<div class="btn-admin">
+    <a href="~/QuanLyGoiDichVu/">
+        <button>Trở về</button>
+    </a>
+</div>

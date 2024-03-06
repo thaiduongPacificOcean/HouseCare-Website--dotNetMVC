@@ -1,0 +1,250 @@
+﻿@model IEnumerable<HouseCareWeb.Models.dangkygoidichvu>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+<div class="search">
+    <form action="/QuanLyDangKyGoiDichVu/Index" method="post">
+        <input type="text"
+               name="search"
+               value="@ViewBag.search"
+               placeholder="Search..."
+               class="fa-search" />
+        <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+    </form>
+    <div class="icon-topnav">
+        <div class="icon-item">
+            <i class="fa-solid fa-bell"></i>
+        </div>
+
+        <a href="">
+            <div class="icon-item">
+                <i class="fa-sharp fa-solid fa-arrow-down-short-wide"></i>
+
+            </div>
+        </a>
+    </div>
+</div>
+<hr />
+
+<div class="list-btn">
+    <div class="btn-admin">
+        <a href="~/QuanLyDangKyGoiDichVu/Danhsachchuaduyet">
+            <button>Danh sách chưa duyệt</button>
+        </a>
+    </div>
+    <div class="btn-delete">
+        <a href="~/QuanLyDangKyGoiDichVu/Danhsachdaduyet">
+            <button>Danh sách đã duyệt</button>
+        </a>
+    </div>
+    <div class="btn-green">
+        <a href="~/QuanLyDangKyGoiDichVu/Danhsachdathuchien">
+            <button>Danh sách đã thực hiện</button>
+        </a>
+    </div>
+    <div class="btn-admin">
+        <a href="~/QuanLyDangKyGoiDichVu/Danhsachchuathuchien">
+            <button>Danh sách chưa thực hiện</button>
+        </a>
+    </div>
+    <div class="btn-admin">
+        <a href="~/QuanLyDangKyGoiDichVu/ExportToExcel">
+            <button>Xuất Excel</button>
+        </a>
+    </div>
+
+</div>
+<!-- lọc -->
+<div class="filter">
+    <form action="/QuanLyDangKyGoiDichVu/Index" method="post" id="form">
+        <div class="fil">
+            <div class="fil-input">
+                <input type="date" name="dateFrom" value="" />
+                <input type="date" name="dateTo" value="" />
+            </div>
+            <div class="fil-btn">
+                <button type="submit">Lọc theo ngày</button>
+            </div>
+        </div>
+       
+    </form>
+</div>
+@{
+    String iconClass = "";
+    if (ViewBag.iconClass == "fa-solid fa-sort-down")
+    {
+        iconClass = "fa-solid fa-sort-up";
+    }
+    else
+    {
+        iconClass = "fa-solid fa-sort-down";
+    }
+}
+<div class="table-responsive text-nowrap info-ser">
+    <h2 style="text-align:center">Danh sách đăng ký gói dịch vụ </h2>
+    <hr />
+    <table class="table">
+        <tr>
+            <th>
+                <a href="/QuanLyDangKyGoiDichVu/Index?sortColumn=Idtaikhoan&iconClass=@iconClass&page=1">Mã tài khoản</a>
+                @if (ViewBag.sortColumn == "Idtaikhoan")
+                {
+                    <i class="@ViewBag.iconClass"></i>
+                }
+            </th>
+            <th>
+                Tên người đăng ký
+            </th>
+            <th>
+                Sdt
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                Mã gói
+            </th>
+            <th>
+                Tên gói
+            </th>
+            <th>
+                Giá tiền
+            </th>
+            <th>
+                Ngày đăng ký
+            </th>
+            <th>
+                Địa chỉ
+            </th>
+            <th>
+                Yêu cầu
+            </th>
+            <th>Trạng thái xác nhận</th>
+            <th>Trạng thái thực hiện</th>
+
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    #@Html.DisplayFor(modelItem => item.account.Mataikhoan)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.account.Ten)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.account.Sdt)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.account.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Magoi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.goidichvu.Tengoi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.goidichvu.Giatien)
+                </td>
+                <td>
+                    @item.Ngaydangky.Value.ToString("dd/MM/yyyy")
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Diachi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Yeucau)
+                </td>
+                @if (item.Trangthai == true)
+                {
+                    <td>
+                        Đã duyệt
+                    </td>
+                }
+                else
+                {
+                    <td>
+                        Chưa duyệt
+                    </td>
+                }
+
+                @if (item.Active == true)
+                {
+                    <td>
+                        Đã thực hiện
+                    </td>
+                }
+                else
+                {
+                    <td>
+                        Chưa hoàn thành
+                    </td>
+                }
+                <td>
+                    @Html.ActionLink(" ", "Edit", new { id = item.Id }, new { @class = "fa-solid fa-pen-to-square" })
+                </td>
+                <td>
+                    @Html.ActionLink("Duyệt", "Duyet", new { id = item.Id })
+                </td>
+                <td>
+                    @Html.ActionLink("Active", "Active", new { id = item.Id })
+                </td>
+                <td>
+                    @Html.ActionLink(" ", "Delete", new { id = item.Id }, new { @class = "fa-solid fa-trash" })
+
+                </td>
+            </tr>
+        }
+        <tr>
+            @{
+                int PrePage = ViewBag.Page - 1;
+                if (PrePage <= 0)
+                {
+                    PrePage = 1;
+                }
+                int NextPage = ViewBag.Page + 1;
+                if (NextPage > ViewBag.NoOfPages)
+                {
+                    NextPage = ViewBag.NoOfPages;
+                }
+            }
+            <td colspan="16" class="page-div">
+                <ul class="pagination">
+                    <li class="page-item ">
+                        <a style="border-radius:0" class="page-link" href="/QuanLyDangKyGoiDichVu/Index?sortColumn=@ViewBag.sortColumn&iconClass=@ViewBag.iconClass&page=@PrePage">Trước</a>
+                    </li>
+                    @for (int i = 0; i < ViewBag.NoOfPages; i++)
+                    {
+                        if (i + 1 == ViewBag.Page)
+                        {
+                            <li class="page-item active">
+                                <a style="border-radius:0" class="page-link" href="/QuanLyDangKyGoiDichVu/Index?sortColumn=@ViewBag.sortColumn&iconClass=@ViewBag.iconClass&page=@(i+1)">@(i+1)</a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="page-item ">
+                                <a style="border-radius:0" class="page-link" href="/QuanLyDangKyGoiDichVu/Index?sortColumn=@ViewBag.sortColumn&iconClass=@ViewBag.iconClass&page=@(i+1)">@(i+1)</a>
+                            </li>
+                        }
+
+                    }
+                    <li class="page-item ">
+                        <a style="border-radius:0" class="page-link" href="/QuanLyDangKyGoiDichVu/Index?sortColumn=@ViewBag.sortColumn&iconClass=@ViewBag.iconClass&page=@NextPage">Sau</a>
+                    </li>
+                </ul>
+            </td>
+
+        </tr>
+    </table>
+</div>

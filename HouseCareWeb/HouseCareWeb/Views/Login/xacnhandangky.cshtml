@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewBag.Title = "Xác nhận đăng ký";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    var tk = Session["xacnhantaikhoan"] as HouseCareWeb.Models.account;
+}
+
+<div id="wrapper">
+    <div class="container">
+        <div class="form-center">
+            <div class="login-form">
+                <div class="form-title">
+                    @if (Session["xacnhantaikhoan"] != null)
+                    {
+                        <div class="alert alert-warning">
+                            <h6>
+                                Email và số điện thoại đã từng đăng ký dịch vụ của chúng tôi rồi. Hãy tiếp tục đăng ký hoặc đăng ký với Email và Số điện thoại mới bên dưới
+                            </h6>
+                        </div>
+                    }
+                    <h2>Đăng ký tài khoản</h2>
+                </div>
+                <div class="form-content">
+                    @using (Html.BeginForm("xacnhandangky", "Login", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+                        <form>
+                            <div class="form-login">
+                                @Html.ValidationSummary()
+                                <input type="hidden" placeholder="id" name="Id" value="@tk.Id" required>
+                                <label><b>Tài Khoản</b></label>
+                                <input type="text" placeholder="Nhập tài khoản" name="Taikhoan" required>
+
+                                <label><b>Email</b></label>
+                                <input type="text" placeholder="Nhập Email" name="Email" required value="@tk.Email">
+
+                                <label><b>Mật khẩu</b></label>
+                                <input type="password" placeholder="Nhập mật khẩu" name="Matkhau" required>
+
+                                <label><b>Tên</b></label>
+                                <input type="text" placeholder="Nhập tên " name="Ten" required>
+
+                                <label><b>Số điện thoại</b></label>
+                                <input type="text" placeholder="Nhập số điện thoại" name="Sdt" required value="@tk.Sdt">
+
+                                <button type="submit" class="registerbtn">Đăng ký</button>
+
+                                <div class="signin">
+                                    <p>Đã có tài khoản ? @Html.ActionLink("Đăng nhập tại đây", "Index", "Login")</p>
+                                </div>
+                            </div>
+                        </form>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

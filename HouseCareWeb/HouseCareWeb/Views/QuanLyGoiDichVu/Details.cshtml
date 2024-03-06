@@ -1,0 +1,58 @@
+﻿@model HouseCareWeb.Models.goidichvu
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Tengoi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tengoi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Giatien)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Giatien)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Madichvu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Madichvu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Detail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Detail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Loai)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Loai)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Magoi }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

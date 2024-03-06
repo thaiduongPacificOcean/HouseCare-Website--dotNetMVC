@@ -1,0 +1,75 @@
+﻿@model HouseCareWeb.Models.nhanvien
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>nhanvien</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Hoten)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hoten)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Chucvu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Chucvu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Img)
+        </dt>
+
+        <dd>
+            <img src="~/img/@Model.Img" alt="Alternate Text" />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tuoi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tuoi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sdt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sdt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mota)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mota)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Kinhnghiem)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kinhnghiem)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Manhanvien }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,58 @@
+﻿@model HouseCareWeb.Models.dangkygoidichvu
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+<div class="info-acc">
+    <h2>Xác nhận xóa thông tin </h2>
+    <hr />
+    <div class="card-info">
+        <form action="/QuanLyDangKyGoiDichVu/Delete/@Model.Id" method="post">
+            <div class="info-row">
+                <div class="info-col">
+                    <label>Mã</label>
+                    <input type="text" name="Madangky" value="#@Model.Madangky" readonly />
+                </div>
+                <div class="info-col">
+                    <label>Mã tài khoản</label>
+                    <input type="text" name="Idtaikhoan" value="@Model.Idtaikhoan" readonly />
+                </div>
+                <div class="info-col">
+                    <label>Mã gói</label>
+                    <input type="text" name="Idtaikhoan" value="@Model.Magoi" readonly />
+                </div>
+                <div class="info-col">
+                    <label>Ngày đăng ký</label>
+                    <input type="text" name="Ngaydangky" value="@Model.Ngaydangky" readonly/>
+                </div>
+                <div class="info-col">
+                    <label>Địa chỉ</label>
+                    <input type="text" name="Diachi" value="@Model.Diachi" readonly/>
+                </div>
+
+                <div class="info-col">
+                    <label>Yêu cầu</label>
+                    <input type="text" name="Yeucau" value="@Model.Yeucau" readonly/>
+                </div>
+                <div class="info-col">
+                    <label>Thời lượng</label>
+                    <input type="text" name="Thoiluong" value="@Model.Thoiluong" readonly />
+                </div>
+                <div class="info-col">
+                    <label>Trạng thái</label>
+                    <input type="text" name="Trangthai" value="@Model.Trangthai" readonly />
+                </div>
+            </div>
+            <div class="btn-delete">
+                <button type="submit">Xác nhận xóa</button>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="btn-savechange">
+    <a class="btn-admin" href="~/QuanLyDangKyGoiDichVu/"><button>Trở về</button></a>
+</div>
+
+

@@ -1,0 +1,83 @@
+﻿@model HouseCareWeb.Models.nhanvien
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+<div class="info-acc">
+    <h2 >Xác nhận xóa thông tin nhân viên</h2>
+    <hr />
+    <div class="card-info">
+        <img src="~/img/@Model.Img" />
+        <div class="card-info--btn">
+            
+            <p>Allowed JPG, GIF or PNG. Max size of 800K</p>
+        </div>
+    </div>
+    <hr />
+    <div class="card-info">
+        <form action="/QuanLyNhanVien/Delete/@Model.Id" method="post">
+            <div class="info-row">
+                <div class="info-col">
+                    <label>Mã nhân viên</label>
+                    <input type="text" name="Manhanvien" value="#@Model.Manhanvien" readonly />
+                </div>
+                <div class="info-col">
+                    <label>Họ và tên</label>
+                    <input type="text" name="Hoten" value="@Model.Hoten" />
+                </div>
+                <div class="info-col">
+                    <label>Giới tính</label>
+                    <input type="text" name="Gioitinh" value="@Model.Gioitinh" />
+                </div>
+                <div class="info-col">
+                    <label>Địa chỉ</label>
+                    <input type="text" name="Diachi" value="@Model.Diachi" />
+                </div>
+                <div class="info-col">
+                    <label>Quê quán</label>
+                    <input type="text" name="Quequan" value="@Model.Quequan" />
+                </div>
+                <div class="info-col">
+                    <label>Chức vụ</label>
+                    <input type="text" name="Chucvu" value="@Model.Chucvu" />
+                </div>
+                <div class="info-col">
+                    <label>Tuổi</label>
+                    <input type="number" name="Tuoi" value="@Model.Tuoi" />
+                </div>
+                <div class="info-col">
+                    <label>Ngày sinh</label>
+                    <input type="date" name="Ngaysinh" value="@Model.Ngaysinh.Value.ToString("dd/MM/yyyy")" />
+                </div>
+                <div class="info-col">
+                    <label>CCCD/CMND</label>
+                    <input type="text" name="CCCD" value="@Model.CCCD" />
+                </div>
+                <div class="info-col">
+                    <label>Số điện thoại</label>
+                    <input type="text" name="Sdt" value="@Model.Sdt" />
+                </div>
+                <div class="info-col">
+                    <label>Email</label>
+                    <input type="email" name="Email" value="@Model.Email" />
+                </div>
+                <div class="info-col">
+                    <label>Mô tả</label>
+                    <input type="text" name="Mota" value="@Model.Mota" />
+                </div>
+                <div class="info-col">
+                    <label>Kinh nghiệm</label>
+                    <input type="text" name="Kinhnghiem" value="@Model.Kinhnghiem" />
+                </div>
+            </div>
+            <div class="btn-delete">
+                <button type="submit">Xóa nhân viên</button>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="btn-savechange">
+    <a class="btn-admin" href="~/QuanLyNhanVien/"><button>Trở về</button></a>
+</div>

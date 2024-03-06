@@ -1,0 +1,43 @@
+﻿@model HouseCareWeb.Models.dichvu
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Tendichvu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tendichvu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Img)
+        </dt>
+
+        <dd>
+            <img src="~/img/@Model.Img" alt="Alternate Text" width="100"/>
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mota)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mota)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Madichvu }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

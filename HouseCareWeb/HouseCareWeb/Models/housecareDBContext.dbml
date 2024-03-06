@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="housecare" Class="housecareDBContextDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=DESKTOP-5U8PRJL\DUONG;Initial Catalog=housecare;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="housecareConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.account" Member="accounts">
+    <Type Name="account">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Mataikhoan" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Taikhoan" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Matkhau" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Ten" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Sdt" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Quyen" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Img" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="account_dangkygoidichvu" Member="dangkygoidichvus" ThisKey="Id" OtherKey="Idtaikhoan" Type="dangkygoidichvu" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tuyendung" Member="Tuyendungs">
+    <Type Name="Tuyendung">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Ngaydangky" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Hoten" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Gioitinh" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Diachi" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Quequan" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Chucvu" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Tuoi" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Ngaysinh" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="CCCD" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Sdt" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Kinhnghiem" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Mota" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Img" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Trangthai" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Checkout" Member="Checkouts">
+    <Type Name="Checkout">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Iddkdv" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Total" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Association Name="dangkygoidichvu_Checkout" Member="dangkygoidichvu" ThisKey="Iddkdv" OtherKey="Id" Type="dangkygoidichvu" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.chitietdichvu" Member="chitietdichvus">
+    <Type Name="chitietdichvu">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Madichvu" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Manhanvien" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="dichvu_chitietdichvu" Member="dichvu" ThisKey="Madichvu" OtherKey="Id" Type="dichvu" IsForeignKey="true" />
+      <Association Name="nhanvien_chitietdichvu" Member="nhanvien" ThisKey="Manhanvien" OtherKey="Id" Type="nhanvien" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.dangkygoidichvu" Member="dangkygoidichvus">
+    <Type Name="dangkygoidichvu">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Madangky" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Idtaikhoan" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Magoi" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Ngaydangky" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Gio" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Diachi" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Yeucau" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Trangthai" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Thoiluong" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="dangkygoidichvu_Checkout" Member="Checkouts" ThisKey="Id" OtherKey="Iddkdv" Type="Checkout" />
+      <Association Name="account_dangkygoidichvu" Member="account" ThisKey="Idtaikhoan" OtherKey="Id" Type="account" IsForeignKey="true" />
+      <Association Name="goidichvu_dangkygoidichvu" Member="goidichvu" ThisKey="Magoi" OtherKey="Id" Type="goidichvu" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.dichvu" Member="dichvus">
+    <Type Name="dichvu">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Madichvu" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Tendichvu" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Img" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Mota" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="dichvu_chitietdichvu" Member="chitietdichvus" ThisKey="Id" OtherKey="Madichvu" Type="chitietdichvu" />
+      <Association Name="dichvu_goidichvu" Member="goidichvus" ThisKey="Id" OtherKey="Madichvu" Type="goidichvu" />
+    </Type>
+  </Table>
+  <Table Name="dbo.goidichvu" Member="goidichvus">
+    <Type Name="goidichvu">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Magoi" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Tengoi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Giatien" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Madichvu" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Detail" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Loai" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="goidichvu_dangkygoidichvu" Member="dangkygoidichvus" ThisKey="Id" OtherKey="Magoi" Type="dangkygoidichvu" />
+      <Association Name="dichvu_goidichvu" Member="dichvu" ThisKey="Madichvu" OtherKey="Id" Type="dichvu" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Lienhe" Member="Lienhes">
+    <Type Name="Lienhe">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Hoten" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Sdt" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Diachi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Ghichu" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.nhanvien" Member="nhanviens">
+    <Type Name="nhanvien">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Manhanvien" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Hoten" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Gioitinh" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Diachi" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Quequan" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Chucvu" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Tuoi" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Ngaysinh" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="CCCD" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Sdt" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Kinhnghiem" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Mota" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Img" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="nhanvien_chitietdichvu" Member="chitietdichvus" ThisKey="Id" OtherKey="Manhanvien" Type="chitietdichvu" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Post" Member="Posts">
+    <Type Name="Post">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Img" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Ngaydang" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Ten" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Mota" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.FilterbyDate" Method="FilterbyDate">
+    <Parameter Name="dateFrom" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="dateTo" Type="System.DateTime" DbType="Date" />
+    <ElementType Name="FilterbyDateResult">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Madangky" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Idtaikhoan" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Magoi" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Ngaydangky" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Gio" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Diachi" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Yeucau" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Trangthai" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Thoiluong" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>

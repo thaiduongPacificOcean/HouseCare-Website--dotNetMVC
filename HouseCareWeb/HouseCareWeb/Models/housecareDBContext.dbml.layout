@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 12, 12.875" name="housecareDBContext">
+  <DataContextMoniker Name="/housecareDBContextDataContext" />
+  <nestedChildShapes>
+    <classShape Id="7a0ac202-8d6a-4533-ac3d-f6e748c042d0" absoluteBounds="3.5, 8.5, 2, 2.5401025390624987">
+      <DataClassMoniker Name="/housecareDBContextDataContext/account" />
+      <nestedChildShapes>
+        <elementListCompartment Id="19424b62-d90f-440f-afce-afb923515aa5" absoluteBounds="3.515, 8.96, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6d9060a0-7de5-4ccd-b111-28ee7ad31ab3" absoluteBounds="6.75, 8.75, 2, 3.8862125651041666">
+      <DataClassMoniker Name="/housecareDBContextDataContext/Tuyendung" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ee199e1e-89f6-487f-8432-a3b2e5c5ecf7" absoluteBounds="6.765, 9.21, 1.9700000000000002, 3.3262125651041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1973de18-0aef-4ff0-9d3a-92c5159f0c51" absoluteBounds="9, 5, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/housecareDBContextDataContext/Checkout" />
+      <nestedChildShapes>
+        <elementListCompartment Id="99f36eb4-6cc1-4c42-ad90-d7f6f156d8c0" absoluteBounds="9.015, 5.46, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3c6f76bc-9673-4854-9fb6-335a0280c093" absoluteBounds="3.5, 1.875, 2, 1.3862939453124998">
+      <DataClassMoniker Name="/housecareDBContextDataContext/chitietdichvu" />
+      <nestedChildShapes>
+        <elementListCompartment Id="30bb5129-2190-477b-a0f9-628fe3154378" absoluteBounds="3.515, 2.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6a1bdce0-bb48-4386-a79e-f1ca401080d2" absoluteBounds="6.25, 4.25, 2, 2.9247054036458326">
+      <DataClassMoniker Name="/housecareDBContextDataContext/dangkygoidichvu" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7a16291e-bd4b-45d3-9186-1bc5261d86d2" absoluteBounds="6.265, 4.71, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="96c7d1cf-2abe-4769-be5e-62e2689f9064" absoluteBounds="0.75, 2.75, 2, 1.7708968098958335">
+      <DataClassMoniker Name="/housecareDBContextDataContext/dichvu" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1c97cf26-367a-478f-897b-fcfa9dbc5d4e" absoluteBounds="0.765, 3.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="73276900-6059-4baa-8876-7e005cf8c191" absoluteBounds="3.5, 4.625, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/housecareDBContextDataContext/goidichvu" />
+      <nestedChildShapes>
+        <elementListCompartment Id="903839ea-cc9c-4de0-b356-70ce5a2a3de7" absoluteBounds="3.515, 5.085, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="99159e32-f9bb-429a-b6e8-54acec6ab7eb" absoluteBounds="6.75, 0.75, 2, 1.9631982421875003">
+      <DataClassMoniker Name="/housecareDBContextDataContext/Lienhe" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0997bba7-b945-4b00-912a-b3addd1e9025" absoluteBounds="6.765, 1.21, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="30f844b0-eabf-47d4-b0a2-8bf672c5157f" absoluteBounds="0.75, 5.75, 2, 3.6939111328124987">
+      <DataClassMoniker Name="/housecareDBContextDataContext/nhanvien" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1c536029-f4bf-4e12-9947-09616c088790" absoluteBounds="0.765, 6.21, 1.9700000000000002, 3.1339111328125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3f5f5550-5299-49f9-a7e1-147ba31cefb2" absoluteBounds="9.75, 0.75, 2, 1.7708968098958329">
+      <DataClassMoniker Name="/housecareDBContextDataContext/Post" />
+      <nestedChildShapes>
+        <elementListCompartment Id="04a4ef89-a73f-4e8f-a9a3-898891e49b66" absoluteBounds="9.765, 1.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(8.25 : 5.69314697265625); (9 : 5.69314697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/housecareDBContextDataContext/dangkygoidichvu/dangkygoidichvu_Checkout" />
+      <nodes>
+        <classShapeMoniker Id="6a1bdce0-bb48-4386-a79e-f1ca401080d2" />
+        <classShapeMoniker Id="1973de18-0aef-4ff0-9d3a-92c5159f0c51" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 8.59375); (6.46875 : 8.59375); (6.46875 : 7.17470540364583)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/housecareDBContextDataContext/account/account_dangkygoidichvu" />
+      <nodes>
+        <classShapeMoniker Id="7a0ac202-8d6a-4533-ac3d-f6e748c042d0" />
+        <classShapeMoniker Id="6a1bdce0-bb48-4386-a79e-f1ca401080d2" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 3.00564697265625); (3.22916666666667 : 3.00564697265625 : JumpStart); (3.39583333333333 : 3.00564697265625 : JumpEnd); (3.5 : 3.00564697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/housecareDBContextDataContext/dichvu/dichvu_chitietdichvu" />
+      <nodes>
+        <classShapeMoniker Id="96c7d1cf-2abe-4769-be5e-62e2689f9064" />
+        <classShapeMoniker Id="3c6f76bc-9673-4854-9fb6-335a0280c093" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 5.70274983723958); (6.25 : 5.70274983723958)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/housecareDBContextDataContext/goidichvu/goidichvu_dangkygoidichvu" />
+      <nodes>
+        <classShapeMoniker Id="73276900-6059-4baa-8876-7e005cf8c191" />
+        <classShapeMoniker Id="6a1bdce0-bb48-4386-a79e-f1ca401080d2" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 4.52089680989583); (3.125 : 4.89589680989583); (3.125 : 4.24846253846154); (3.50153746153846 : 4.625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/housecareDBContextDataContext/dichvu/dichvu_goidichvu" />
+      <nodes>
+        <classShapeMoniker Id="96c7d1cf-2abe-4769-be5e-62e2689f9064" />
+        <classShapeMoniker Id="73276900-6059-4baa-8876-7e005cf8c191" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 5.81307592307692); (3.3125 : 5.25057592307692); (3.3125 : 2.40907148632812); (3.5 : 2.40907148632812)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/housecareDBContextDataContext/nhanvien/nhanvien_chitietdichvu" />
+      <nodes>
+        <classShapeMoniker Id="30f844b0-eabf-47d4-b0a2-8bf672c5157f" />
+        <classShapeMoniker Id="3c6f76bc-9673-4854-9fb6-335a0280c093" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

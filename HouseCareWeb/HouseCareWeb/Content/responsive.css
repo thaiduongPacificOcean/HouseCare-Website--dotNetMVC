@@ -1,0 +1,229 @@
+﻿
+
+/*  PC */
+@media (min-width : 1024px){
+    /*.notify {
+        display: none;
+    }*/
+    /*.card {
+        display:none;
+    }*/
+}
+
+/* TABLET */
+@media (min-width : 740px) and (max-width :1023px) {
+    /*.card {
+        display: none;
+    }*/
+    .package {
+        display : flex;
+        margin:0;
+    }
+    .pk-thumb{
+        flex: 0 0 50%;
+        max-width: 50%;
+        width: 100%;
+    }
+    .pk-item h3 {
+        font-size: 19px;
+        min-height: 30px;
+    }
+    .pk-item h2 {
+        font-size : 42px;
+    }
+    .login-form {
+        margin-left : 180px;
+        margin-right : 180px;
+    }
+    .content {
+        margin-left: 25%;
+    }
+    .row-thumb {
+        flex: 0 0 50%;
+        max-width:50%;
+        width:100%;
+    }
+    .pk-item{
+        min-height: 640px;
+    }
+}
+    
+/* MOBILE */
+
+@media (max-width : 740px) {
+    .container {
+    }
+    .none-backtop{
+        display:none;
+    }
+    .banner {
+        height: 400px;
+    }
+
+    .slideshow-container {
+        display: none;
+    }
+
+    .intro {
+        display: block;
+    }
+
+    .intro-thumb-4 {
+        padding: 0;
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .intro-thumb-6 {
+        width: 100%;
+        display: block;
+    }
+
+    .row {
+        display: block;
+    }
+
+    .row-thumb {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .item-mota {
+        display: block;
+    }
+
+    .mota-thumb {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .thongke-div {
+        height: auto;
+    }
+
+    .thongke {
+        display: block;
+    }
+
+    .thongke-thumb {
+        width: 100%;
+        max-width: 100%;
+        border-bottom: 1px solid white;
+        border-top: 1px solid white;
+        border-right: none;
+        border-left: none;
+    }
+
+    .notify {
+    }
+
+    .notify-thumb {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .myfooter {
+        display: block;
+    }
+
+    .ft-thumb {
+        width: 100%;
+        max-width: 100%;
+    }
+    /* Contact */
+    .map {
+        display: none;
+    }
+
+    .contact {
+        display: block;
+    }
+
+    .contact-thumb6 {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .contact-thumb4 {
+        width: 100%;
+        max-width: 100%;
+        margin-left: 0;
+    }
+    /* Trang tuyen dung */
+    .service {
+        display: block;
+    }
+
+    .service-thumb-3 {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .service-thumb-7 {
+        width: 100%;
+        max-width: 100%;
+        margin-left: 0;
+    }
+
+    .package {
+        display: block;
+    }
+
+    .pk-thumb {
+        flex: none;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .pk-item {
+        margin-right: 0;
+    }
+    .notify-div {
+    }
+    .notify {
+    }
+    .slider {
+       
+    }
+    /*.card {
+        display: none;
+       
+    }*/
+    .card-img img {
+        
+    }
+    .login-form {
+        margin: 30px 0;
+    }
+    .card-info--btn a{
+        margin : 0 5px 10px 0;
+    }
+    .card-info--btn {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 10px;
+    }
+        .card-info--btn p {
+            padding : 0;
+        }
+    .logout-btn {
+        display : none;
+    }
+    .content {
+        padding : 0;
+    }
+    .icon-footer {
+        display : none;
+    }
+    .info-row {
+        display :block;
+    }
+    .info-col {
+        max-width : 100%;
+        width:100%;
+    }
+    .list-btn {
+        flex-wrap :wrap;
+    }
+}
+    

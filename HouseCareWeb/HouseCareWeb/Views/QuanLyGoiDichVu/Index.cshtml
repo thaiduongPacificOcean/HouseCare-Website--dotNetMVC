@@ -1,0 +1,176 @@
+﻿@model IEnumerable<HouseCareWeb.Models.goidichvu>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+<div class="search">
+    <form action="/QuanLyGoiDichVu/Index" method="post">
+        <input type="text"
+               name="search"
+               value="@ViewBag.search"
+               placeholder="Search..."
+               class="fa-search" />
+        <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+    </form>
+
+    <div class="icon-topnav">
+        <div class="icon-item">
+            <i class="fa-solid fa-bell"></i>
+        </div>
+
+        <a href="">
+            <div class="icon-item">
+                <i class="fa-sharp fa-solid fa-arrow-down-short-wide"></i>
+
+            </div>
+        </a>
+    </div>
+</div>
+<hr />
+<div class="list-btn">
+    <div class="btn-admin">
+        <a href="~/QuanLyGoiDichVu/Create">
+            <button>Thêm</button>
+        </a>
+    </div>
+    <div class="btn-green">
+        <a href="~/QuanLyGoiDichVu/ExportToExcel">
+            <button>Xuất Excel</button>
+        </a>
+    </div>
+</div>
+
+@{
+    String iconClass = "";
+    if (ViewBag.iconClass == "fa-solid fa-sort-down")
+    {
+        iconClass = "fa-solid fa-sort-up";
+    }
+    else
+    {
+        iconClass = "fa-solid fa-sort-down";
+    }
+}
+
+
+<div class="table-responsive text-nowrap info-ser">
+
+    <table class="table">
+        <tr>
+            <th>
+                <a href="/QuanLyGoiDichVu/Index?sortColumn=Magoi&iconClass=@iconClass&page=1">Mã gói</a>
+                @if (ViewBag.sortColumn == "Magoi")
+                {
+                    <i class="@ViewBag.iconClass"></i>
+                }
+            </th>
+            <th>
+                <a href="/QuanLyGoiDichVu/Index?sortColumn=Tengoi&iconClass=@iconClass&page=1">Tên gói</a>
+                @if (ViewBag.sortColumn == "Tengoi")
+                {
+                    <i class="@ViewBag.iconClass"></i>
+                }
+            </th>
+            <th>
+                <a href="/QuanLyGoiDichVu/Index?sortColumn=Giatien&iconClass=@iconClass&page=1">Giá tiền</a>
+                @if (ViewBag.sortColumn == "Giatien")
+                {
+                    <i class="@ViewBag.iconClass"></i>
+                }
+            </th>
+            <th>
+                <a href="/QuanLyGoiDichVu/Index?sortColumn=Madichvu&iconClass=@iconClass&page=1">Mã dịch vụ</a>
+                @if (ViewBag.sortColumn == "Madichvu")
+                {
+                    <i class="@ViewBag.iconClass"></i>
+                }
+            </th>
+            <th>
+                Tên dịch vụ
+            </th>
+            <th>
+                Mô tả
+            </th>
+            <th>
+                Loại
+            </th>
+            <th></th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    #@Html.DisplayFor(modelItem => item.Magoi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tengoi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Giatien)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Madichvu)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.dichvu.Tendichvu)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Detail)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Loai)
+                </td>
+                <td>
+                    @Html.ActionLink(" ", "Edit", new { id = item.Id }, new { @class = "fa-solid fa-pen-to-square" })
+                </td>
+                <td>
+                    @Html.ActionLink(" ", "Delete", new { id = item.Id }, new { @class = "fa-solid fa-trash" })
+                </td>
+            </tr>
+        }
+        <tr>
+            @{
+                int PrePage = ViewBag.Page - 1;
+                if (PrePage <= 0)
+                {
+                    PrePage = 1;
+                }
+                int NextPage = ViewBag.Page + 1;
+                if (NextPage > ViewBag.NoOfPages)
+                {
+                    NextPage = ViewBag.NoOfPages;
+                }
+            }
+            <td colspan="9" class="page-div">
+                <ul class="pagination">
+                    <li class="page-item ">
+                        <a style="border-radius:0" class="page-link" href="/QuanLyGoiDichVu/Index?sortColumn=@ViewBag.sortColumn&iconClass=@ViewBag.iconClass&page=@PrePage">Trước</a>
+                    </li>
+                    @for (int i = 0; i < ViewBag.NoOfPages; i++)
+                    {
+                        if (i + 1 == ViewBag.Page)
+                        {
+                            <li class="page-item active">
+                                <a style="border-radius:0" class="page-link" href="/QuanLyGoiDichVu/Index?sortColumn=@ViewBag.sortColumn&iconClass=@ViewBag.iconClass&page=@(i+1)">@(i+1)</a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="page-item ">
+                                <a style="border-radius:0" class="page-link" href="/QuanLyGoiDichVu/Index?sortColumn=@ViewBag.sortColumn&iconClass=@ViewBag.iconClass&page=@(i+1)">@(i+1)</a>
+                            </li>
+                        }
+
+                    }
+                    <li class="page-item ">
+                        <a style="border-radius:0" class="page-link" href="/QuanLyGoiDichVu/Index?sortColumn=@ViewBag.sortColumn&iconClass=@ViewBag.iconClass&page=@NextPage">Sau</a>
+                    </li>
+                </ul>
+            </td>
+
+        </tr>
+    </table>
+</div>

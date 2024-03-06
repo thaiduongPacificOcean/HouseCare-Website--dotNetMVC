@@ -1,0 +1,96 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/Content/main.css" rel="stylesheet" />
+    <link href="~/Content/responsive.css" rel="stylesheet" />
+    <link href="~/fonts/fontawesome-free-6.2.0-web/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,500,600,700&display=swap" rel="stylesheet">
+    <title>Admin page</title>
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+
+    <div class="sec">
+        <div class="top_nav">
+            <div class="hamburger">
+                <a href="#">
+                    <i class="fas fa-bars"></i>
+                </a>
+            </div>
+        </div>
+
+    </div>
+    <div class="Sidenav">
+        <div class="profile">
+            <img src="~/img/nhanvien7.jpg" alt="profile_picture">
+            <h3>Thái Dương</h3>
+            <p>Admin</p>
+        </div>
+        <div class="Sidenav-item">
+            <ul>
+                <li>
+                    <a href="~/Home/" class="active">
+                        <span class="icon"><i class="fas fa-home"></i></span>
+                        <span class="item">Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="~/QuanLyNhanVien/">
+                        <span class="icon"><i class="fas fa-desktop"></i></span>
+                        <span class="item">Quản lý nhân viên</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <span class="icon"><i class="fas fa-database"></i></span>
+                        <span class="item">Quản lý dịch vụ</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon"><i class="fas fa-chart-line"></i></span>
+                        <span class="item">Reports</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon"><i class="fas fa-user-shield"></i></span>
+                        <span class="item">Admin</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon"><i class="fas fa-cog"></i></span>
+                        <span class="item">Settings</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="content" class="content">
+        <div class="info">
+            
+
+        </div>
+    </div>
+
+</body>
+</html>
+<script>
+    var hamburger = document.querySelector(".hamburger");
+    hamburger.addEventListener("click", function () {
+        document.querySelector("body").classList.toggle("active");
+    })
+</script>
